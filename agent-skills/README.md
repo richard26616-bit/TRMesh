@@ -1,31 +1,31 @@
 # SDCenter Agent Skills
 
-This directory contains SDCenter agent skills for social data analysis. Each skill follows the same operating contract:
+本目录存放 SDCenter Agent Skill。当前版本按 RedFox 热门 Skill 的产品形态重写：每个 Skill 使用中文说明，覆盖简介、核心价值、适用对象、功能特性、工具绑定、输入输出、常用话术、使用场景和执行边界。
 
-- call only registered SDCenter tools
-- route platform API access through SDCenter services
-- do not fabricate platform data
-- state missing evidence clearly
-- return structured findings, risks, and next actions
+## 设计参考
 
-Initial catalog:
+RedFox 热门 Skill 的主要模式包括：
 
-- 11 social platforms
-- 3 skills per platform
-- 33 platform-specific skills
-- 1 cross-platform planning skill
+- AI 信息源：按平台和赛道生成热点日报
+- 每日热门榜 / 飙升榜：追踪爆款内容、热搜和增长信号
+- 账号诊断 / 账号订阅追踪：分析账号表现、对标对象和改进方向
+- 文案 / 标题评分：基于同赛道爆款规律给出多维评分和改写建议
+- 评论 / 舆情洞察：提炼用户声音、情绪、争议和需求
+- 效率工具：多平台改写、素材提取、合规检查
 
-Platforms:
+## SDCenter 执行边界
 
-- TikTok
-- Douyin
-- Instagram
-- X
-- YouTube
-- Reddit
-- Bilibili
-- Weibo
-- Kuaishou
-- WeChat
-- Zhihu
-- Cross-platform campaign planning
+- 只能调用 SDCenter 已注册工具
+- 所有平台数据访问必须走 UpstreamGateway
+- 计费必须走 Billing
+- 请求记录必须走 Usage
+- 不得直接访问未注册外部 URL
+- 不得编造平台数据或指标
+- 缺少数据时必须明确标注不可验证
+
+## 当前目录
+
+- 覆盖 11 个社媒平台：TikTok、抖音、Instagram、X、YouTube、Reddit、B站、微博、快手、微信、知乎
+- 每个平台 3 个 Skill，共 33 个平台 Skill
+- 另有 1 个跨平台 Skill：多平台文案风格改写
+- 共 34 个 Skill 目录，全部使用中文说明
