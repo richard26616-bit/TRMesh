@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+.local/
+/query.json
+/body.json
+/agent-skills/*/query.json
+/agent-skills/*/body.json
+snapshot*.json

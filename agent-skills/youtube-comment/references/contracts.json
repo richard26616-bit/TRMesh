@@ -1,0 +1,770 @@
+{
+  "skill": "youtube-comment",
+  "version": "2.0.0",
+  "sourceVersion": "V5.3.2",
+  "validatedAt": "2026-10-04",
+  "endpoints": {
+    "youtube-web_v2-get_video_comments": {
+      "method": "GET",
+      "path": "/api/v1/youtube/web_v2/get_video_comments",
+      "operationId": "get_video_comments_api_v1_youtube_web_v2_get_video_comments_get",
+      "summary": "获取视频评论/Get video comments",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "video_id": {
+            "type": "string",
+            "minLength": 11,
+            "maxLength": 11,
+            "description": "视频ID/Video ID",
+            "title": "Video Id",
+            "example": "LuIL5JATZsc"
+          },
+          "language_code": {
+            "type": "string",
+            "description": "语言代码（如zh-CN, en-US等）/Language code",
+            "default": "zh-CN",
+            "title": "Language Code",
+            "example": "zh-CN"
+          },
+          "country_code": {
+            "type": "string",
+            "description": "国家代码（如US, JP等）/Country code",
+            "default": "US",
+            "title": "Country Code",
+            "example": "US"
+          },
+          "sort_by": {
+            "type": "string",
+            "enum": [
+              "top",
+              "newest"
+            ],
+            "title": "CommentSortByAPI",
+            "description": "排序方式 | Sort by",
+            "examples": {
+              "top": {
+                "summary": "热门评论",
+                "value": "top"
+              },
+              "newest": {
+                "summary": "最新评论",
+                "value": "newest"
+              }
+            },
+            "default": "top"
+          },
+          "continuation_token": {
+            "type": "string",
+            "description": "翻页令牌/Pagination token",
+            "title": "Continuation Token"
+          },
+          "need_format": {
+            "type": "boolean",
+            "description": "是否需要清洗数据，提取关键内容，移除冗余数据/Whether to clean and format the data",
+            "default": true,
+            "title": "Need Format"
+          }
+        },
+        "required": [
+          "video_id"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "video_id": "LuIL5JATZsc"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取YouTube视频的一级评论\n\n### 参数详解:\n\n#### 📌 必选参数:\n**video_id** (string)\n- **作用**: 视频ID\n- **格式**: YouTube视频ID字符串\n- **示例**: `\"oaSNBz4qMQY\"`\n- **获取方式**: 从URL `https://www.youtube.com/watch?v=oaSNBz4qMQY` 中提取\n\n#### ⚙️ 可选参数:\n**language_code** (string, 可选)\n- **作用**: 设置评论显示的语言偏好\n- **默认值**: `\"zh-CN\"`\n- **可用值**: `\"zh-CN\"`, `\"en-US\"`, `\"ja-JP\"`, `\"ko-KR\"` 等\n\n**country_code** (string, 可选)\n- **作用**: 设置地区代码\n- **默认值**: `\"US\"`\n- **可用值**: `\"US\"`, `\"JP\"`, `\"GB\"` 等\n\n**sort_by** (string, 可选)\n- **作用**: 评论排序方式\n- **默认值**: `\"top\"`\n- **可用值**:\n  - `\"top\"` - 热门评论（按点赞数排序）\n  - `\"newest\"` - 最新评论（按时间排序）\n\n**continuation_token** (string, 可选)\n- **作用**: 翻页令牌，用于获取下一页评论\n- **默认值**: `null`\n- **获取方式**: 从上一次请求的响应中提取\n\n**need_format** (boolean, 可选)\n- **作用**: 是否返回清洗后的精简数据\n- **默认值**: `true`\n- **可用值**:\n  - `false` - 返回原始完整数据\n  - `true` - 返回清洗后的精简数据（推荐，默认）\n\n### 返回数据结构 (need_format=true):\n```json\n{\n  \"comments\": [\n    {\n      \"comment_id\": \"UgzRDoUJAvDNn5_8i8p4AaABAg\",\n      \"content\": \"评论内容文本\",\n      \"published_time\": \"1天前\",\n      \"reply_level\": 0,\n      \"like_count\": \"2\",\n      \"like_count_a11y\": \"2 次赞\",\n      \"reply_count\": \"0\",\n      \"reply_count_a11y\": \"0 条回复\",\n      \"reply_count_text\": \"1 条回复\",\n      \"reply_continuation_token\": \"...\",\n      \"author\": {\n        \"channel_id\": \"UCzRzHrLFuH0lHZYnrI84I8Q\",\n        \"display_name\": \"@username\",\n        \"channel_url\": \"https://www.youtube.com/@username\",\n        \"avatar_url\": \"https://yt3.ggpht.com/...\",\n        \"avatar_thumbnails\": [\n          {\"url\": \"...\", \"width\": 88, \"height\": 88}\n        ],\n        \"is_verified\": false,\n        \"is_creator\": false,\n        \"is_artist\": false\n      },\n      \"creator_thumbnail_url\": \"https://yt3.ggpht.com/...\"\n    }\n  ],\n  \"continuation_token\": \"下一页token\"\n}\n```\n\n### 字段说明:\n- `comment_id`: 评论唯一ID\n- `content`: 评论文本内容\n- `published_time`: 发布时间（相对时间，如\"1天前\"）\n- `reply_level`: 回复层级（0表示一级评论）\n- `like_count`: 点赞数\n- `reply_count`: 回复数\n- `reply_count_text`: 回复数文本（如\"1 条回复\"）\n- `reply_continuation_token`: 获取该评论回复的token\n- `author`: 评论作者信息\n  - `channel_id`: 作者频道ID\n  - `display_name`: 显示名称\n  - `channel_url`: 频道URL\n  - `avatar_url`: 头像URL\n  - `is_verified`: 是否已认证\n  - `is_creator`: 是否为视频创作者\n  - `is_artist`: 是否为音乐人\n- `creator_thumbnail_url`: 视频创作者头像URL\n\n# [English]\n### Purpose:\n- Get YouTube video first-level comments\n\n### Parameters:\n\n#### 📌 Required:\n**video_id** (string)\n- **Purpose**: Video ID\n- **Format**: YouTube video ID string\n- **Example**: `\"oaSNBz4qMQY\"`\n- **How to get**: Extract from URL `https://www.youtube.com/watch?v=oaSNBz4qMQY`\n\n#### ⚙️ Optional:\n**language_code** (string, optional)\n- **Purpose**: Set language preference for comments\n- **Default**: `\"zh-CN\"`\n- **Values**: `\"zh-CN\"`, `\"en-US\"`, `\"ja-JP\"`, `\"ko-KR\"`, etc.\n\n**country_code** (string, optional)\n- **Purpose**: Set region code\n- **Default**: `\"US\"`\n- **Values**: `\"US\"`, `\"JP\"`, `\"GB\"`, etc.\n\n**sort_by** (string, optional)\n- **Purpose**: Comment sorting method\n- **Default**: `\"top\"`\n- **Values**:\n  - `\"top\"` - Top comments (sorted by likes)\n  - `\"newest\"` - Newest comments (sorted by time)\n\n**continuation_token** (string, optional)\n- **Purpose**: Pagination token for next page\n- **Default**: `null`\n- **How to get**: Extract from previous response\n\n**need_format** (boolean, optional)\n- **Purpose**: Whether to return cleaned simplified data\n- **Default**: `true`\n- **Values**:\n  - `false` - Return raw complete data\n  - `true` - Return cleaned simplified data (recommended, default)\n\n### Response Structure (need_format=true):\n```json\n{\n  \"comments\": [\n    {\n      \"comment_id\": \"UgzRDoUJAvDNn5_8i8p4AaABAg\",\n      \"content\": \"Comment text content\",\n      \"published_time\": \"1 day ago\",\n      \"reply_level\": 0,\n      \"like_count\": \"2\",\n      \"like_count_a11y\": \"2 likes\",\n      \"reply_count\": \"0\",\n      \"reply_count_a11y\": \"0 replies\",\n      \"reply_count_text\": \"1 reply\",\n      \"reply_continuation_token\": \"...\",\n      \"author\": {\n        \"channel_id\": \"UCzRzHrLFuH0lHZYnrI84I8Q\",\n        \"display_name\": \"@username\",\n        \"channel_url\": \"https://www.youtube.com/@username\",\n        \"avatar_url\": \"https://yt3.ggpht.com/...\",\n        \"avatar_thumbnails\": [\n          {\"url\": \"...\", \"width\": 88, \"height\": 88}\n        ],\n        \"is_verified\": false,\n        \"is_creator\": false,\n        \"is_artist\": false\n      },\n      \"creator_thumbnail_url\": \"https://yt3.ggpht.com/...\"\n    }\n  ],\n  \"continuation_token\": \"next page token\"\n}\n```\n\n### Field Descriptions:\n- `comment_id`: Unique comment ID\n- `content`: Comment text content\n- `published_time`: Published time (relative, e.g., \"1 day ago\")\n- `reply_level`: Reply level (0 for first-level comments)\n- `like_count`: Number of likes\n- `reply_count`: Number of replies\n- `reply_count_text`: Reply count text (e.g., \"1 reply\")\n- `reply_continuation_token`: Token to get replies for this comment\n- `author`: Comment author info\n  - `channel_id`: Author's channel ID\n  - `display_name`: Display name\n  - `channel_url`: Channel URL\n  - `avatar_url`: Avatar URL\n  - `is_verified`: Whether verified\n  - `is_creator`: Whether video creator\n  - `is_artist`: Whether artist\n- `creator_thumbnail_url`: Video creator's avatar URL\n\n# [示例/Examples]\n## 获取热门评论\nGET /youtube_web/get_video_comments?video_id=oaSNBz4qMQY&sort_by=top\n\n## 获取最新评论\nGET /youtube_web/get_video_comments?video_id=oaSNBz4qMQY&sort_by=newest\n\n## 获取清洗后的评论数据（推荐）\nGET /youtube_web/get_video_comments?video_id=oaSNBz4qMQY&need_format=true\n\n## 翻页获取更多评论\nGET /youtube_web/get_video_comments?video_id=oaSNBz4qMQY&continuation_token=xxx&need_format=true",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "youtube-web_v2-get_video_comment_replies": {
+      "method": "GET",
+      "path": "/api/v1/youtube/web_v2/get_video_comment_replies",
+      "operationId": "get_video_comment_replies_api_v1_youtube_web_v2_get_video_comment_replies_get",
+      "summary": "获取视频二级评论/Get video sub comments",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "continuation_token": {
+            "type": "string",
+            "description": "回复的continuation token（从一级评论的reply_continuation_token字段获取）/Reply continuation token from first-level comment",
+            "title": "Continuation Token"
+          },
+          "language_code": {
+            "type": "string",
+            "description": "语言代码（如zh-CN, en-US等）/Language code",
+            "default": "zh-CN",
+            "title": "Language Code",
+            "example": "zh-CN"
+          },
+          "country_code": {
+            "type": "string",
+            "description": "国家代码（如US, JP等）/Country code",
+            "default": "US",
+            "title": "Country Code",
+            "example": "US"
+          },
+          "need_format": {
+            "type": "boolean",
+            "description": "是否需要清洗数据，提取关键内容，移除冗余数据/Whether to clean and format the data",
+            "default": true,
+            "title": "Need Format"
+          }
+        },
+        "required": [
+          "continuation_token"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "continuation_token": "REPLACE_WITH_CONTINUATION_TOKEN"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取视频二级评论\n\n### 参数详解:\n\n#### 📌 必选参数:\n**continuation_token** (string)\n- **作用**: 回复的continuation token\n- **获取方式**: 从一级评论的响应数据中获取 `reply_continuation_token` 字段\n- **示例**: `\"Eg0SC29hU05CejRxTVFZGAYygwEaUBIaVWd3WmhjUXVGUmJZTlhkUV85VjRBYUFCQWciAggAKhhVQ0pIQko3Ri1uQUlsTUdvbG0wSHU0dmcyC29hU05CejRxTVFZQAFICoIBAggBQi9jb21tZW50LXJlcGxpZXMtaXRlbS1VZ3daaGNRdUZSYllOWGRRXzlWNEFhQUJBZw%3D%3D\"`\n\n#### ⚙️ 可选参数:\n**language_code** (string, 可选)\n- **作用**: 设置回复显示的语言偏好\n- **默认值**: `\"zh-CN\"`\n- **可用值**: `\"zh-CN\"`, `\"en-US\"`, `\"ja-JP\"`, `\"ko-KR\"` 等\n\n**country_code** (string, 可选)\n- **作用**: 设置地区代码\n- **默认值**: `\"US\"`\n- **可用值**: `\"US\"`, `\"JP\"`, `\"GB\"` 等\n\n**need_format** (boolean, 可选)\n- **作用**: 是否返回清洗后的精简数据\n- **默认值**: `true`\n- **可用值**:\n  - `false` - 返回原始完整数据\n  - `true` - 返回清洗后的精简数据（推荐，默认）\n\n### 使用流程:\n1. 先调用 `/get_video_comments` 接口获取一级评论\n2. 从一级评论的响应中找到 `reply_continuation_token` 字段\n3. 使用该 token 调用本接口获取该评论的所有回复\n\n### 返回数据结构 (need_format=true):\n```json\n{\n  \"comments\": [\n    {\n      \"comment_id\": \"UgwZhcQuFRbYNXdQ_9V4AaABAg.A2B3C4D5E6F7G8H9I0J1\",\n      \"content\": \"回复内容文本\",\n      \"published_time\": \"2天前\",\n      \"reply_level\": 1,\n      \"like_count\": \"5\",\n      \"like_count_a11y\": \"5 次赞\",\n      \"reply_count\": \"0\",\n      \"author\": {\n        \"channel_id\": \"UCxxxxxx\",\n        \"display_name\": \"@username\",\n        \"channel_url\": \"https://www.youtube.com/@username\",\n        \"avatar_url\": \"https://yt3.ggpht.com/...\",\n        \"is_verified\": false,\n        \"is_creator\": true,\n        \"is_artist\": false\n      }\n    }\n  ],\n  \"continuation_token\": \"下一页token（如果有更多回复）\"\n}\n```\n\n### 字段说明:\n- `reply_level`: 回复层级（1表示二级评论/回复）\n- `is_creator`: 是否为视频创作者（如果是创作者回复会标记为true）\n- 其他字段与一级评论相同\n\n# [English]\n### Purpose:\n- Get video second-level comment replies\n\n### Parameters:\n\n#### Required:\n**continuation_token** (string)\n- **Purpose**: Reply continuation token from first-level comment\n- **How to get**: Extract `reply_continuation_token` from the first-level comment response\n\n#### Optional:\n**language_code** (string, optional)\n- **Purpose**: Language preference for comments\n- **Default**: `\"zh-CN\"`\n\n**country_code** (string, optional)\n- **Purpose**: Region code\n- **Default**: `\"US\"`\n\n**need_format** (boolean, optional)\n- **Purpose**: Whether to return cleaned simplified data\n- **Default**: `true`\n\n### Returns:\n- `replies`: List of reply comments\n- `continuation_token`: Next page token (if more replies available)\n\n### Usage flow:\n1. Get first-level comments via `get_video_comments`\n2. Extract `reply_continuation_token` from a comment that has replies\n3. Pass it as `continuation_token` to this endpoint\n4. For more replies, use the returned `continuation_token`\n\n# [示例/Example]\nGET /get_video_comment_replies?continuation_token=xxx&need_format=true",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "youtube-web_v2-get_video_info": {
+      "method": "GET",
+      "path": "/api/v1/youtube/web_v2/get_video_info",
+      "operationId": "get_video_info_api_v1_youtube_web_v2_get_video_info_get",
+      "summary": "获取视频详情 /Get video information",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "video_id": {
+            "type": "string",
+            "minLength": 11,
+            "maxLength": 11,
+            "description": "视频ID/Video ID",
+            "title": "Video Id",
+            "example": "oaSNBz4qMQY"
+          },
+          "language_code": {
+            "type": "string",
+            "description": "语言代码（如zh-CN, en-US等）/Language code",
+            "default": "zh-CN",
+            "title": "Language Code",
+            "example": "zh-CN"
+          },
+          "need_format": {
+            "type": "boolean",
+            "description": "是否需要清洗数据，提取关键内容，移除冗余数据/Whether to clean and format the data",
+            "default": true,
+            "title": "Need Format"
+          }
+        },
+        "required": [
+          "video_id"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "video_id": "oaSNBz4qMQY"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取YouTube视频详情信息\n- 返回原始完整数据（包含 playerResponse 和 initialData）\n\n### 参数详解:\n\n#### 📌 必选参数:\n**video_id** (string)\n- **作用**: 视频ID\n- **获取方式**: 从视频URL中提取，例如 `https://www.youtube.com/watch?v=oaSNBz4qMQY`，video_id 就是 `oaSNBz4qMQY`\n- **示例**: `\"oaSNBz4qMQY\"`\n\n#### ⚙️ 可选参数:\n**language_code** (string, 可选)\n- **作用**: 设置语言偏好\n- **默认值**: `\"zh-CN\"`\n- **可用值**: `\"zh-CN\"`, `\"en-US\"`, `\"ja-JP\"`, `\"ko-KR\"` 等\n\n### 返回数据结构:\n```json\n{\n  \"playerResponse\": {\n    \"videoDetails\": {},\n    \"streamingData\": {\n      \"formats\": [],\n      \"adaptiveFormats\": []\n    },\n    \"microformat\": {},\n    ...\n  },\n  \"initialData\": {\n    \"contents\": {\n      \"twoColumnWatchNextResults\": {\n        \"results\": {\n          \"results\": {\n            \"contents\": [\n              {\n                \"videoPrimaryInfoRenderer\": {...},\n                \"videoSecondaryInfoRenderer\": {...}\n              }\n            ]\n          }\n        }\n      }\n    },\n    ...\n  }\n}\n```\n\n### 主要字段说明:\n- `playerResponse`: YouTube 播放器响应数据\n  - `videoDetails`: 视频基本信息（可能为空，取决于YouTube的返回）\n  - `streamingData`: 视频流数据（包含 formats 和 adaptiveFormats，包含 googlevideo.com 的URL）\n  - `microformat`: 元数据信息\n- `initialData`: YouTube 页面初始化数据\n  - `videoPrimaryInfoRenderer`: 主要信息（标题、观看次数、点赞数等）\n  - `videoSecondaryInfoRenderer`: 次要信息（频道信息、描述等）\n\n# [English]\n### Purpose:\n- Get YouTube video details\n- Returns raw complete data (includes playerResponse and initialData)\n\n### Parameters:\n\n#### 📌 Required:\n**video_id** (string)\n- **Purpose**: Video ID\n- **How to get**: Extract from video URL, e.g., `https://www.youtube.com/watch?v=oaSNBz4qMQY`, video_id is `oaSNBz4qMQY`\n- **Example**: `\"oaSNBz4qMQY\"`\n\n#### ⚙️ Optional:\n**language_code** (string, optional)\n- **Purpose**: Set language preference\n- **Default**: `\"zh-CN\"`\n- **Values**: `\"zh-CN\"`, `\"en-US\"`, `\"ja-JP\"`, `\"ko-KR\"`, etc.\n\n### Response Structure:\n```json\n{\n  \"playerResponse\": {\n    \"videoDetails\": {},\n    \"streamingData\": {\n      \"formats\": [],\n      \"adaptiveFormats\": []\n    },\n    \"microformat\": {},\n    ...\n  },\n  \"initialData\": {\n    \"contents\": {\n      \"twoColumnWatchNextResults\": {\n        \"results\": {\n          \"results\": {\n            \"contents\": [\n              {\n                \"videoPrimaryInfoRenderer\": {...},\n                \"videoSecondaryInfoRenderer\": {...}\n              }\n            ]\n          }\n        }\n      }\n    },\n    ...\n  }\n}\n```\n\n### Key Fields:\n- `playerResponse`: YouTube player response data\n  - `videoDetails`: Basic video info (may be empty depending on YouTube's response)\n  - `streamingData`: Video stream data (includes formats and adaptiveFormats with googlevideo.com URLs)\n  - `microformat`: Metadata information\n- `initialData`: YouTube page initialization data\n  - `videoPrimaryInfoRenderer`: Primary info (title, view count, like count, etc.)\n  - `videoSecondaryInfoRenderer`: Secondary info (channel info, description, etc.)\n\n# [示例/Examples]\n## 获取视频详情数据 / Get video details\nGET /youtube_web/get_video_info?video_id=oaSNBz4qMQY\n\n## 指定语言 / Specify language\nGET /youtube_web/get_video_info?video_id=oaSNBz4qMQY&language_code=en-US",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

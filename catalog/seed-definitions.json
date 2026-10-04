@@ -1,0 +1,557 @@
+{
+  "tiktok-trend-analyst": {
+    "name": "TikTok AI信息源",
+    "nameEn": "TikTok AI Feed",
+    "id": 1
+  },
+  "tiktok-creator-profile": {
+    "name": "TikTok热门账号诊断",
+    "nameEn": "TikTok Hot Account Diagnosis",
+    "id": 2
+  },
+  "tiktok-hashtag-monitor": {
+    "name": "TikTok话题标签飙升榜",
+    "nameEn": "TikTok Hashtag Surge Ranking",
+    "id": 3
+  },
+  "douyin-content-brief": {
+    "name": "抖音AI信息源",
+    "nameEn": "Douyin AI Feed",
+    "id": 4
+  },
+  "douyin-creator-profile": {
+    "name": "抖音热门账号推荐",
+    "nameEn": "Douyin Hot Account Discovery",
+    "id": 5
+  },
+  "douyin-live-commerce-scout": {
+    "name": "抖音直播电商侦察",
+    "nameEn": "Douyin Live Commerce Scout",
+    "id": 6
+  },
+  "instagram-account-audit": {
+    "name": "Instagram 账号诊断",
+    "nameEn": "Instagram Account Audit",
+    "id": 7
+  },
+  "instagram-reels-trend": {
+    "name": "Instagram Reels热门作品榜",
+    "nameEn": "Instagram Reels Hot Ranking",
+    "id": 8
+  },
+  "instagram-hashtag-research": {
+    "name": "Instagram标签研究助手",
+    "nameEn": "Instagram Hashtag Research Assistant",
+    "id": 9
+  },
+  "x-topic-monitor": {
+    "name": "X实时热点雷达",
+    "nameEn": "X Real-time Hot Topic Radar",
+    "id": 10
+  },
+  "x-account-brief": {
+    "name": "X账号订阅追踪",
+    "nameEn": "X Account Subscription Tracker",
+    "id": 11
+  },
+  "x-sentiment-watch": {
+    "name": "X舆情情绪简报",
+    "nameEn": "X Sentiment Brief",
+    "id": 12
+  },
+  "youtube-video-seo": {
+    "name": "YouTube视频SEO评分器",
+    "nameEn": "YouTube Video SEO Scorer",
+    "id": 13
+  },
+  "youtube-channel-benchmark": {
+    "name": "YouTube频道对标诊断",
+    "nameEn": "YouTube Channel Benchmark Diagnosis",
+    "id": 14
+  },
+  "youtube-comment-insight": {
+    "name": "YouTube评论洞察助手",
+    "nameEn": "YouTube Comment Insight Assistant",
+    "id": 15
+  },
+  "reddit-community-research": {
+    "name": "Reddit 社群研究",
+    "nameEn": "Reddit Community Research",
+    "id": 16
+  },
+  "reddit-subreddit-monitor": {
+    "name": "Reddit子版块热点监测",
+    "nameEn": "Reddit Subreddit Hot Monitor",
+    "id": 17
+  },
+  "reddit-voice-of-customer": {
+    "name": "Reddit客户声音挖掘",
+    "nameEn": "Reddit Voice of Customer Mining",
+    "id": 18
+  },
+  "bilibili-video-analysis": {
+    "name": "AI B站信息源",
+    "nameEn": "AI Bilibili Feed",
+    "id": 19
+  },
+  "bilibili-creator-benchmark": {
+    "name": "B站UP主对标诊断",
+    "nameEn": "Bilibili Creator Benchmark Diagnosis",
+    "id": 20
+  },
+  "bilibili-comment-sentiment": {
+    "name": "B站弹幕评论情绪简报",
+    "nameEn": "Bilibili Danmaku Sentiment Brief",
+    "id": 21
+  },
+  "weibo-hot-topic-radar": {
+    "name": "微博热搜雷达",
+    "nameEn": "Weibo Hot Search Radar",
+    "id": 22
+  },
+  "weibo-account-monitor": {
+    "name": "微博账号订阅追踪",
+    "nameEn": "Weibo Account Subscription Tracker",
+    "id": 23
+  },
+  "weibo-sentiment-brief": {
+    "name": "微博舆情情绪简报",
+    "nameEn": "Weibo Sentiment Brief",
+    "id": 24
+  },
+  "kuaishou-creator-insight": {
+    "name": "快手热门账号诊断",
+    "nameEn": "Kuaishou Hot Account Diagnosis",
+    "id": 25
+  },
+  "kuaishou-live-commerce-brief": {
+    "name": "快手直播电商简报",
+    "nameEn": "Kuaishou Live Commerce Brief",
+    "id": 26
+  },
+  "kuaishou-content-trend": {
+    "name": "AI快手信息源",
+    "nameEn": "AI Kuaishou Feed",
+    "id": 27
+  },
+  "wechat-channel-brief": {
+    "name": "AI视频号信息源",
+    "nameEn": "AI WeChat Channels Feed",
+    "id": 28
+  },
+  "wechat-account-research": {
+    "name": "公众号黑马账号推荐",
+    "nameEn": "WeChat Official Account Rising Stars",
+    "id": 29
+  },
+  "wechat-topic-monitor": {
+    "name": "公众号标题生成与评分",
+    "nameEn": "WeChat Title Generator and Scorer",
+    "id": 30
+  },
+  "zhihu-question-research": {
+    "name": "知乎热门问题研究",
+    "nameEn": "Zhihu Hot Question Research",
+    "id": 31
+  },
+  "zhihu-answer-insight": {
+    "name": "知乎回答质量评分器",
+    "nameEn": "Zhihu Answer Quality Scorer",
+    "id": 32
+  },
+  "zhihu-author-brief": {
+    "name": "知乎作者对标诊断",
+    "nameEn": "Zhihu Author Benchmark Diagnosis",
+    "id": 33
+  },
+  "social-campaign-planner": {
+    "name": "多平台文案风格改写",
+    "nameEn": "Multi-platform Copy Rewrite",
+    "id": 34
+  },
+  "account-video-downloader": {
+    "name": "多平台账号主页视频提取器",
+    "nameEn": "Multi-platform Account Video Extractor",
+    "id": 35
+  },
+  "multi-content-feed": {
+    "name": "多平台内容信息源",
+    "nameEn": "Multi-platform Content Feed",
+    "id": 36
+  },
+  "overseas-trending-search": {
+    "name": "海外热点趋势搜索",
+    "nameEn": "Overseas Trending Search",
+    "id": 37
+  },
+  "trending-hub": {
+    "name": "全平台热点雷达",
+    "nameEn": "Trending Hub",
+    "id": 38
+  },
+  "trending-hub-top10": {
+    "name": "全平台热点 Top10",
+    "nameEn": "Trending Hub Top 10",
+    "id": 39
+  },
+  "video-downloader": {
+    "name": "短视频下载器",
+    "nameEn": "Short Video Downloader",
+    "id": 40
+  },
+  "cn-last30days": {
+    "name": "中国社媒近30天话题研究",
+    "nameEn": "China Social Topics Last 30 Days",
+    "id": 41
+  },
+  "bili-ai-feed": {
+    "name": "B站 AI 信息源",
+    "nameEn": "Bilibili AI Feed",
+    "id": 42
+  },
+  "bilibili-comment": {
+    "name": "B站评论分析",
+    "nameEn": "Bilibili Comment Analysis",
+    "id": 43
+  },
+  "bilibili-keywords-accounts": {
+    "name": "B站关键词搜账号",
+    "nameEn": "Bilibili Keyword Account Search",
+    "id": 44
+  },
+  "bilibili-keywords-search": {
+    "name": "B站关键词搜作品",
+    "nameEn": "Bilibili Keyword Work Search",
+    "id": 45
+  },
+  "bilibili-portfolio-search": {
+    "name": "B站账号作品列表",
+    "nameEn": "Bilibili Portfolio Search",
+    "id": 46
+  },
+  "bilibili-search-download": {
+    "name": "B站搜索批量下载",
+    "nameEn": "Bilibili Search Download",
+    "id": 47
+  },
+  "bilibili-video-downloader": {
+    "name": "B站视频下载",
+    "nameEn": "Bilibili Video Downloader",
+    "id": 48
+  },
+  "cultural-tourism-bilibili-feed": {
+    "name": "文旅 B站信息源",
+    "nameEn": "Cultural Tourism Bilibili Feed",
+    "id": 49
+  },
+  "playlet-bili-feed": {
+    "name": "短剧 B站信息源",
+    "nameEn": "Playlet Bilibili Feed",
+    "id": 50
+  },
+  "douyin-account-diagnosis": {
+    "name": "抖音账号诊断",
+    "nameEn": "Douyin Account Diagnosis",
+    "id": 51
+  },
+  "douyin-ai-feed": {
+    "name": "AI 抖音信息源",
+    "nameEn": "AI Douyin Feed",
+    "id": 52
+  },
+  "douyin-content-surge": {
+    "name": "抖音内容飙升榜",
+    "nameEn": "Douyin Content Surge",
+    "id": 53
+  },
+  "douyin-daily-hot": {
+    "name": "抖音每日热门作品榜",
+    "nameEn": "Douyin Daily Hot",
+    "id": 54
+  },
+  "douyin-hot-trend": {
+    "name": "抖音热点趋势",
+    "nameEn": "Douyin Hot Trend",
+    "id": 55
+  },
+  "douyin-rise-ranking": {
+    "name": "抖音涨粉账号榜",
+    "nameEn": "Douyin Rise Ranking",
+    "id": 56
+  },
+  "douyin-search": {
+    "name": "抖音作品查询",
+    "nameEn": "Douyin Work Search",
+    "id": 57
+  },
+  "douyin-similar-account": {
+    "name": "抖音相似账号推荐",
+    "nameEn": "Douyin Similar Account",
+    "id": 58
+  },
+  "douyin-subscribe": {
+    "name": "抖音账号订阅追踪",
+    "nameEn": "Douyin Account Subscribe",
+    "id": 59
+  },
+  "douyin-top-account": {
+    "name": "抖音热门账号推荐",
+    "nameEn": "Douyin Top Account",
+    "id": 60
+  },
+  "douyin-video-downloader": {
+    "name": "抖音视频下载",
+    "nameEn": "Douyin Video Downloader",
+    "id": 61
+  },
+  "douyin-weekly-surge": {
+    "name": "抖音七日飙升榜",
+    "nameEn": "Douyin Weekly Surge",
+    "id": 62
+  },
+  "douyin-works-crawler": {
+    "name": "抖音作品采集",
+    "nameEn": "Douyin Works Crawler",
+    "id": 63
+  },
+  "cultural-tourism-douyin-feed": {
+    "name": "文旅抖音信息源",
+    "nameEn": "Cultural Tourism Douyin Feed",
+    "id": 64
+  },
+  "playlet-douyin-feed": {
+    "name": "短剧抖音信息源",
+    "nameEn": "Playlet Douyin Feed",
+    "id": 65
+  },
+  "instagram-video-downloader": {
+    "name": "Instagram 视频下载",
+    "nameEn": "Instagram Video Downloader",
+    "id": 66
+  },
+  "ks-ai-feed": {
+    "name": "快手 AI 信息源",
+    "nameEn": "Kuaishou AI Feed",
+    "id": 67
+  },
+  "kuaishou-comment": {
+    "name": "快手评论分析",
+    "nameEn": "Kuaishou Comment Analysis",
+    "id": 68
+  },
+  "kuaishou-search": {
+    "name": "快手作品搜索",
+    "nameEn": "Kuaishou Work Search",
+    "id": 69
+  },
+  "tiktok-video-downloader": {
+    "name": "TikTok 视频下载",
+    "nameEn": "TikTok Video Downloader",
+    "id": 70
+  },
+  "toutiao-search": {
+    "name": "头条内容搜索",
+    "nameEn": "Toutiao Content Search",
+    "id": 71
+  },
+  "twitter-comment": {
+    "name": "X 评论分析",
+    "nameEn": "X Comment Analysis",
+    "id": 72
+  },
+  "twitter-work-search": {
+    "name": "X 作品搜索",
+    "nameEn": "X Work Search",
+    "id": 73
+  },
+  "gzh-ai-feed": {
+    "name": "公众号 AI 信息源",
+    "nameEn": "WeChat Official Account AI Feed",
+    "id": 74
+  },
+  "gzh-search": {
+    "name": "公众号文章搜索",
+    "nameEn": "WeChat Official Account Search",
+    "id": 75
+  },
+  "gzh-subscribe": {
+    "name": "公众号订阅追踪",
+    "nameEn": "WeChat Official Account Subscribe",
+    "id": 76
+  },
+  "wechat-10w-hot": {
+    "name": "公众号 10w+ 热文",
+    "nameEn": "WeChat 100k Hot Articles",
+    "id": 77
+  },
+  "wechat-account-analyzer": {
+    "name": "公众号账号诊断",
+    "nameEn": "WeChat Account Analyzer",
+    "id": 78
+  },
+  "wechat-channels-ai-feed": {
+    "name": "视频号 AI 信息源",
+    "nameEn": "WeChat Channels AI Feed",
+    "id": 79
+  },
+  "wechat-fastest-growing": {
+    "name": "公众号最快增长榜",
+    "nameEn": "WeChat Fastest Growing",
+    "id": 80
+  },
+  "wechat-original-hot": {
+    "name": "公众号原创热文",
+    "nameEn": "WeChat Original Hot Articles",
+    "id": 81
+  },
+  "wechat-search": {
+    "name": "公众号搜索",
+    "nameEn": "WeChat Search",
+    "id": 82
+  },
+  "wechat-similar-account": {
+    "name": "公众号相似账号推荐",
+    "nameEn": "WeChat Similar Account",
+    "id": 83
+  },
+  "wechat-title": {
+    "name": "公众号爆款标题",
+    "nameEn": "WeChat Title Assistant",
+    "id": 84
+  },
+  "wechat-top-account": {
+    "name": "公众号热门账号",
+    "nameEn": "WeChat Top Account",
+    "id": 85
+  },
+  "wechat-video-downloader": {
+    "name": "视频号视频下载",
+    "nameEn": "WeChat Channels Video Downloader",
+    "id": 86
+  },
+  "wechat-write": {
+    "name": "公众号文案创作",
+    "nameEn": "WeChat Writing Assistant",
+    "id": 87
+  },
+  "cultural-tourism-wechat-feed": {
+    "name": "文旅公众号信息源",
+    "nameEn": "Cultural Tourism WeChat Feed",
+    "id": 88
+  },
+  "playlet-wechat-feed": {
+    "name": "短剧公众号信息源",
+    "nameEn": "Playlet WeChat Feed",
+    "id": 89
+  },
+  "weibo-search": {
+    "name": "微博内容搜索",
+    "nameEn": "Weibo Content Search",
+    "id": 90
+  },
+  "weibo-comment": {
+    "name": "微博评论分析",
+    "nameEn": "Weibo Comment Analysis",
+    "id": 91
+  },
+  "xiaohongshu-account-analyzer": {
+    "name": "小红书账号诊断",
+    "nameEn": "Xiaohongshu Account Analyzer",
+    "id": 92
+  },
+  "xiaohongshu-ai-feed": {
+    "name": "AI 小红书信息源",
+    "nameEn": "AI Xiaohongshu Feed",
+    "id": 93
+  },
+  "xiaohongshu-cover": {
+    "name": "小红书爆款封面设计",
+    "nameEn": "Xiaohongshu Cover Assistant",
+    "id": 94
+  },
+  "xiaohongshu-crawler": {
+    "name": "小红书作品采集",
+    "nameEn": "Xiaohongshu Work Crawler",
+    "id": 95
+  },
+  "xiaohongshu-dailytop": {
+    "name": "小红书每日爆款笔记",
+    "nameEn": "Xiaohongshu Daily Top Notes",
+    "id": 96
+  },
+  "xiaohongshu-lowtop": {
+    "name": "小红书低粉爆款笔记",
+    "nameEn": "Xiaohongshu Low-follower Top Notes",
+    "id": 97
+  },
+  "xiaohongshu-note-analyzer": {
+    "name": "小红书笔记优化助手",
+    "nameEn": "Xiaohongshu Note Analyzer",
+    "id": 98
+  },
+  "xiaohongshu-search": {
+    "name": "小红书热门笔记搜索",
+    "nameEn": "Xiaohongshu Hot Note Search",
+    "id": 99
+  },
+  "xiaohongshu-similar-account": {
+    "name": "小红书相似账号推荐",
+    "nameEn": "Xiaohongshu Similar Account",
+    "id": 100
+  },
+  "xiaohongshu-title": {
+    "name": "小红书爆款标题生成",
+    "nameEn": "Xiaohongshu Title Assistant",
+    "id": 101
+  },
+  "xiaohongshu-title-score": {
+    "name": "小红书标题评分",
+    "nameEn": "Xiaohongshu Title Score",
+    "id": 102
+  },
+  "xiaohongshu-top-account": {
+    "name": "小红书热门账号推荐",
+    "nameEn": "Xiaohongshu Top Account",
+    "id": 103
+  },
+  "xiaohongshu-video-downloader": {
+    "name": "小红书视频下载",
+    "nameEn": "Xiaohongshu Video Downloader",
+    "id": 104
+  },
+  "xiaohongshu-weeklytop": {
+    "name": "小红书周榜热门笔记",
+    "nameEn": "Xiaohongshu Weekly Top",
+    "id": 105
+  },
+  "xiaohongshu-write": {
+    "name": "小红书笔记生成",
+    "nameEn": "Xiaohongshu Writing Assistant",
+    "id": 106
+  },
+  "cultural-tourism-xiaohongshu-feed": {
+    "name": "文旅小红书信息源",
+    "nameEn": "Cultural Tourism Xiaohongshu Feed",
+    "id": 107
+  },
+  "playlet-xiaohongshu-feed": {
+    "name": "短剧小红书信息源",
+    "nameEn": "Playlet Xiaohongshu Feed",
+    "id": 108
+  },
+  "youtube-comment": {
+    "name": "YouTube 评论分析",
+    "nameEn": "YouTube Comment Analysis",
+    "id": 109
+  },
+  "youtube-digest": {
+    "name": "YouTube 视频文稿提取",
+    "nameEn": "YouTube Video Digest",
+    "id": 110
+  },
+  "youtube-video-downloader": {
+    "name": "YouTube 视频下载",
+    "nameEn": "YouTube Video Downloader",
+    "id": 111
+  }
+}

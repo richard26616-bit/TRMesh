@@ -1,0 +1,18 @@
+{
+  "date": "2026-10-04",
+  "before": 1033,
+  "after": 1400,
+  "imported": {
+    "sourceProvider": "Upstream",
+    "importBatch": "tikhub-20261004",
+    "importedCount": 367,
+    "updatedCount": 0,
+    "skippedCount": 723,
+    "totalRegisteredCount": 1400
+  },
+  "retired": 310,
+  "unchangedOperatorSettingsPreserved": true,
+  "officialRegistered": 1050,
+  "newRoutesRemainDraft": true,
+  "liveForwardingVerified": false
+}

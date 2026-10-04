@@ -1,0 +1,1240 @@
+{
+  "skill": "zhihu-answer-insight",
+  "version": "2.0.0",
+  "sourceVersion": "V5.3.2",
+  "validatedAt": "2026-10-04",
+  "endpoints": {
+    "zhihu-web-fetch_question_detail": {
+      "method": "GET",
+      "path": "/api/v1/zhihu/web/fetch_question_detail",
+      "operationId": "fetch_question_detail_api_v1_zhihu_web_fetch_question_detail_get",
+      "summary": "获取知乎问题详情/Get Zhihu Question Detail",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "description": "问题ID/Question ID",
+            "title": "Question Id"
+          }
+        },
+        "required": [
+          "question_id"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "question_id": "REPLACE_WITH_QUESTION_ID"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取知乎问题详情 (标题/描述/统计/话题等)\n### 参数:\n- question_id: 问题ID\n### 返回:\n- 知乎问题详情\n\n# [English]\n### Purpose:\n- Get Zhihu Question Detail (title / description / stats / topics, etc.)\n### Parameters:\n- question_id: Question ID\n### Returns:\n- Zhihu Question Detail\n\n# [示例/Example]\nquestion_id = \"37811449\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "zhihu-web-fetch_question_answers": {
+      "method": "GET",
+      "path": "/api/v1/zhihu/web/fetch_question_answers",
+      "operationId": "fetch_question_answers_api_v1_zhihu_web_fetch_question_answers_get",
+      "summary": "获取知乎问题回答列表/Get Zhihu Question Answers",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "type": "string",
+            "description": "问题ID/Question ID",
+            "title": "Question Id"
+          },
+          "cursor": {
+            "type": "string",
+            "description": "分页游标/Pagination cursor",
+            "default": "",
+            "title": "Cursor"
+          },
+          "limit": {
+            "type": "integer",
+            "description": "每页回答数量/Number of answers per page",
+            "default": 5,
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "integer",
+            "description": "偏移量/Offset",
+            "default": 0,
+            "title": "Offset"
+          },
+          "order": {
+            "type": "string",
+            "description": "排序方式：default=默认排序，updated=按时间排序/Sort order: default=default sort, updated=sort by time",
+            "default": "default",
+            "title": "Order"
+          },
+          "session_id": {
+            "type": "string",
+            "description": "会话ID/Session ID",
+            "default": "",
+            "title": "Session Id"
+          }
+        },
+        "required": [
+          "question_id"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "question_id": "REPLACE_WITH_QUESTION_ID"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取知乎问题的回答列表\n### 参数:\n- question_id: 问题ID\n- cursor: 分页游标，用于获取下一页数据，从返回的字段里提取\n- limit: 每页回答数量，默认5\n- offset: 偏移量，默认0\n- order: 排序方式，default=默认排序，updated=按时间排序\n- session_id: 会话ID，用于分页时保持状态，从返回的字段里提取\n### 返回:\n- 知乎问题回答列表数据\n\n# [English]\n### Purpose:\n- Get Zhihu Question Answers List\n### Parameters:\n- question_id: Question ID\n- cursor: Pagination cursor for next page, extracted from response fields\n- limit: Number of answers per page, default 5\n- offset: Offset, default 0\n- order: Sort order, default=default sort, updated=sort by time\n- session_id: Session ID for pagination state, extracted from response fields\n### Returns:\n- Zhihu Question Answers List Data\n\n# [示例/Example]\nquestion_id = \"37811449\"\ncursor = \"\"\nlimit = 5\noffset = 0\norder = \"default\"  # 或 \"updated\" 按时间排序\nsession_id = \"\"\n\n# 获取下一页 (Get next page):\ncursor = \"d88f09569eba20b966bcf15076977430\"\noffset = 1\nsession_id = \"1757928778451769939\"\n\n# 按时间排序 (Sort by time):\norder = \"updated\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "zhihu-web-fetch_article_search_v3": {
+      "method": "GET",
+      "path": "/api/v1/zhihu/web/fetch_article_search_v3",
+      "operationId": "fetch_article_search_v3_api_v1_zhihu_web_fetch_article_search_v3_get",
+      "summary": "获取知乎文章搜索V3/Get Zhihu Article Search V3",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "搜索关键词/Search Keywords",
+            "title": "Keyword"
+          },
+          "offset": {
+            "type": "string",
+            "description": "偏移量/Offset",
+            "default": "0",
+            "title": "Offset"
+          },
+          "limit": {
+            "type": "string",
+            "description": "每页文章数量/Number of articles per page",
+            "default": "20",
+            "title": "Limit"
+          },
+          "show_all_topics": {
+            "type": "integer",
+            "description": "显示所有主题/Show all topics",
+            "default": 0,
+            "title": "Show All Topics"
+          },
+          "search_source": {
+            "type": "string",
+            "description": "搜索来源/Search Source",
+            "default": "Normal",
+            "title": "Search Source"
+          },
+          "search_hash_id": {
+            "type": "string",
+            "description": "搜索哈希ID/Search Hash ID",
+            "default": "",
+            "title": "Search Hash Id"
+          },
+          "vertical": {
+            "type": "string",
+            "description": "垂类/Vertical Type",
+            "default": "",
+            "title": "Vertical"
+          },
+          "sort": {
+            "type": "string",
+            "description": "排序/Sort",
+            "default": "",
+            "title": "Sort"
+          },
+          "time_interval": {
+            "type": "string",
+            "description": "时间间隔/Time Interval",
+            "default": "",
+            "title": "Time Interval"
+          },
+          "vertical_info": {
+            "type": "string",
+            "description": "垂类信息/Vertical Info",
+            "default": "",
+            "title": "Vertical Info"
+          }
+        },
+        "required": [
+          "keyword"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "keyword": "AI"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取知乎文章搜索V3\n### 参数:\n- keyword: 搜索关键词\n- offset: 偏移量\n- limit: 每页文章数量\n- show_all_topics: 显示所有主题，\n    - 0 不显示话题\n    - 1 显示话题\n- search_source: 搜索来源\n    - Filter 过滤参数生效\n    - Normal 为普通结果\n- search_hash_id: 搜索哈希ID，用于过滤重复搜索结果\n- vertical: 空 不限类型\n    - answer 只看回答\n    - article 只看文章\n    - zvideo 只看视频\n- sort: 空 综合排序\n    - upvoted_count 最多赞同\n    - created_time 最新发布\n- time_interval: 时间间隔\n    - 空 不限时间\n    - a_day 一天内\n    - a_week 一周内\n    - a_month 一个月内\n    - three_months 三个月内\n    - half_a_year 半年内\n    - a_year 一年内\n- vertical_info: 垂类信息\n    - 0,0,0,0,0,0,0,0,0,0,0,0 不限类型，不会设置勿填\n### 返回:\n- 知乎文章搜索V3\n\n# [English]\n### Purpose:\n- Get Zhihu Article Search V3\n### Parameters:\n- keyword: Search Keywords\n- offset: Offset\n- limit: Number of articles per page\n- show_all_topics: Show all topics\n    - 0 Do not show topics\n    - 1 Show topics\n- search_source: Search Source\n    - Filter parameter takes effect\n    - Normal is normal result\n- search_hash_id: Search Hash ID, used to filter duplicate search results\n- vertical: Empty unlimited type\n    - answer only see answers\n    - article only see articles\n    - zvideo only see videos\n- sort: Empty comprehensive sorting\n    - upvoted_count most upvoted\n    - created_time latest release\n- time_interval: Time interval\n    - Empty unlimited time\n    - a_day within a day\n    - a_week within a week\n    - a_month within a month\n    - three_months within three months\n    - half_a_year within half a year\n    - a_year within a year\n- vertical_info: Vertical information\n    - 0,0,0,0,0,0,0,0,0,0,0,0 unlimited type, do not set do not fill\n### Returns:\n- Zhihu Article Search V3\n\n# [示例/Example]\n# 默认搜索，综合排序，不限时间\nkeyword = \"deepseek\"\noffset = \"0\"\nlimit = \"20\"\nshow_all_topics = 0\nsearch_source = \"Normal\"\nsearch_hash_id = \"\"\nvertical = \"\"\nsort = \"\"\ntime_interval = \"\"\nvertical_info = \"\"\n\n# 只看回答，最多赞同，三月内\nkeyword = \"deepseek\"\noffset = \"0\"\nlimit = \"20\"\nshow_all_topics = 0\nsearch_source = \"Filter\"\nsearch_hash_id = \"\"\nvertical = \"answer\"\nsort = \"upvoted_count\"\ntime_interval = \"three_months\"\nvertical_info = \"0,0,0,0,0,0,0,0,0,0,0,0\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "zhihu-web-fetch_answer_detail": {
+      "method": "GET",
+      "path": "/api/v1/zhihu/web/fetch_answer_detail",
+      "operationId": "fetch_answer_detail_api_v1_zhihu_web_fetch_answer_detail_get",
+      "summary": "获取知乎回答详情/Get Zhihu Answer Detail",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "answer_id": {
+            "type": "string",
+            "description": "回答ID/Answer ID",
+            "title": "Answer Id"
+          }
+        },
+        "required": [
+          "answer_id"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "answer_id": "REPLACE_WITH_ANSWER_ID"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取知乎单个回答的详情 (正文/统计/作者/所属问题等)\n### 参数:\n- answer_id: 回答ID (网页 URL .../answer/{answer_id} 中的数字)\n### 返回:\n- 知乎回答详情\n\n# [English]\n### Purpose:\n- Get a single Zhihu answer's detail (content / stats / author / question, etc.)\n### Parameters:\n- answer_id: Answer ID (the numeric id in the page URL .../answer/{answer_id})\n### Returns:\n- Zhihu Answer Detail\n\n# [示例/Example]\nanswer_id = \"2054145988235880002\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "zhihu-web-fetch_comment_v5": {
+      "method": "GET",
+      "path": "/api/v1/zhihu/web/fetch_comment_v5",
+      "operationId": "fetch_comment_v5_api_v1_zhihu_web_fetch_comment_v5_get",
+      "summary": "获取知乎评论区V5/Get Zhihu Comment V5",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "answer_id": {
+            "type": "string",
+            "description": "回答ID/Answer ID",
+            "title": "Answer Id"
+          },
+          "order_by": {
+            "type": "string",
+            "description": "排序/Sort",
+            "default": "score",
+            "title": "Order By"
+          },
+          "limit": {
+            "type": "string",
+            "description": "每页评论数量/Number of comments per page",
+            "default": "20",
+            "title": "Limit"
+          },
+          "offset": {
+            "type": "string",
+            "description": "偏移量/Offset",
+            "default": "",
+            "title": "Offset"
+          }
+        },
+        "required": [
+          "answer_id"
+        ],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "answer_id": "REPLACE_WITH_ANSWER_ID"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取知乎评论区V5\n### 参数:\n- answer_id: 回答ID\n- order_by: 排序\n    - score 最热排序\n    - ts 最新排序\n- limit: 每页评论数量\n- offset: 偏移量/页码\n### 返回:\n- 知乎评论区V5\n\n# [English]\n### Purpose:\n- Get Zhihu Comment V5\n### Parameters:\n- answer_id: Answer ID\n- order_by: Sort\n    - score Hottest Sort\n    - ts Latest Sort\n- limit: Number of comments per page\n- offset: Offset/Page Number\n### Returns:\n- Zhihu Comment V5\n\n# [示例/Example]\nanswer_id = \"89226347214\"\norder_by = \"score\"\nlimit = \"20\"\noffset = \"\" # 1739257701_11108372663_0",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

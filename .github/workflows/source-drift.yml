@@ -1,0 +1,19 @@
+name: Check official contract drift
+on:
+  schedule:
+    - cron: '25 3 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Fetch public OpenAPI metadata
+        run: curl --fail --silent --show-error --location --max-time 60 https://api.tikhub.io/openapi.json -o /tmp/tikhub-openapi.json
+      - name: Check pinned source and all bound schemas
+        run: python tools/validate_skills.py . --spec /tmp/tikhub-openapi.json

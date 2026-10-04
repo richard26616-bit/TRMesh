@@ -1,0 +1,21 @@
+{
+  "source": "https://api.tikhub.io/openapi.json",
+  "sourceVersion": "V5.3.2",
+  "date": "2026-10-04",
+  "sourceSha256": "db74cc55a1a12d266773da093e55227f17aba4ad092f2ce4a73f8e5de3df239d",
+  "officialOperationCount": 1050,
+  "skillCount": 122,
+  "enabledSkills": 120,
+  "disabledSkills": [
+    "toutiao-search",
+    "xiaohongshu-cover"
+  ],
+  "referenceScenarioCount": 121,
+  "coverageCounts": {
+    "direct": 23,
+    "composed": 42,
+    "partial": 32,
+    "unsupported": 24
+  },
+  "liveDataVerified": false
+}

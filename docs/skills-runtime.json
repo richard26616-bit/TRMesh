@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-04",
+  "adminSummary": {
+    "total": 122,
+    "enabled": 120,
+    "featured": 4,
+    "platforms": 14
+  },
+  "publicSkillCount": 120,
+  "bindingsMatchManifest": true,
+  "disabledOldEntrypoints": [
+    "toutiao-search",
+    "xiaohongshu-cover"
+  ],
+  "liveDataVerified": false
+}

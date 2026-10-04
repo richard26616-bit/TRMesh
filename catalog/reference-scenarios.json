@@ -1,0 +1,607 @@
+[
+  {
+    "skillCode": "tiktok-topic-aweme-list",
+    "skillName": "获取TikTok指定话题作品数据",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "twitter-work-search",
+    "skillName": "X(Twitter)作品搜索",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "x-subscribe",
+    "skillName": "X (Twitter) 订阅账号推文",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "x-entrepreneur-rank",
+    "skillName": "X (Twitter) 企业家榜单",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "x-top-account",
+    "skillName": "X (Twitter) 热门账号榜",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "gzh-toutiao-growth-rank",
+    "skillName": "公众号头条增长榜",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-account-diagnosis",
+    "skillName": "抖音账号诊断",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-fastest-growing",
+    "skillName": "公众号阅读增长榜",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-video-downloader",
+    "skillName": "小红书视频下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "image-gen",
+    "skillName": "GPT-image2",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "visual-ops-writer",
+    "skillName": "图文运营创作器",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-search",
+    "skillName": "抖音热门作品查询",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-search",
+    "skillName": "公众号热门文章查询",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-search",
+    "skillName": "小红书爆款笔记查询",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "pdf-image-text-extractor",
+    "skillName": "PDF和图片文字提取",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "gzh-astock-top",
+    "skillName": "A股公众号大V",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "stock-analysis",
+    "skillName": "股票分析专家-公众号股票大V蒸馏",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "investor-distiller",
+    "skillName": "公众号投资博主蒸馏器",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "gzh-search-crawler",
+    "skillName": "公众号搜索爬虫",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-inspiration",
+    "skillName": "小红书内容灵感专家",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-creator",
+    "skillName": "小红书爆款内容创作专家",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-creator",
+    "skillName": "公众号内容工坊",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-account-analyzer",
+    "skillName": "公众号账号诊断",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-works-crawler",
+    "skillName": "抖音作品爬取",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-original-hot",
+    "skillName": "公众号热门原创文章",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-10w-hot",
+    "skillName": "公众号 10w+文章",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "global-ai-news-brief",
+    "skillName": "全球AI新闻简报",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "playlet-douyin-feed",
+    "skillName": "短剧-抖音信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "playlet-wechat-feed",
+    "skillName": "短剧-公众号信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "playlet-bili-feed",
+    "skillName": "短剧-B站信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "weibo-comment-search",
+    "skillName": "微博评论分析",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "weibo-realtime-search",
+    "skillName": "微博博文搜索",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "weibo-hot-search",
+    "skillName": "微博热搜",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "weibo-post-search",
+    "skillName": "微博账号作品回采",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "kuaishou-video-extract",
+    "skillName": "快手视频提文案",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "kuaishou-search",
+    "skillName": "快手作品搜索",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-account-analyzer",
+    "skillName": "小红书账号深度诊断",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "gzh-subscribe",
+    "skillName": "公众号订阅追踪",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-similar-account",
+    "skillName": "抖音相似账号推荐",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "tiktok-home-downloader",
+    "skillName": "TikTok主页视频批量提取",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-channels-crawler",
+    "skillName": "视频号作品查询",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-similar-account",
+    "skillName": "公众号相似账号推荐",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-subscribe",
+    "skillName": "抖音账号订阅追踪",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-similar-account",
+    "skillName": "小红书相似账号推荐",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "account-video-downloader",
+    "skillName": "多平台账号主页视频提取器 / Account Video Downloader",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "bilibili-search-download",
+    "skillName": "B站搜索批量下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "overseas-trending-search",
+    "skillName": "海外跨平台热文搜索",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "youtube-comment",
+    "skillName": "YouTube视频评论分析",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-video-downloader",
+    "skillName": "抖音主页视频批量提取",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "twitter-comment",
+    "skillName": "X(Twitter)作品评论分析",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "geo-analyzer",
+    "skillName": "品牌GEO分析",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "video-downloader",
+    "skillName": "短视频下载器",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-cover",
+    "skillName": "公众号封面图制作",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-write",
+    "skillName": "公众号文案创作",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-top-account",
+    "skillName": "小红书热门账号推荐",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "bilibili-video-downloader",
+    "skillName": "B站视频下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "tiktok-video-downloader",
+    "skillName": "TikTok视频下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "youtube-video-downloader",
+    "skillName": "YouTube视频下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "instagram-video-downloader",
+    "skillName": "Instagram视频下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-video-downloader",
+    "skillName": "视频号视频下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "twitter-video-downloader",
+    "skillName": "X(Twitter)视频下载",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "kuaishou-comment",
+    "skillName": "快手评论分析",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-channels-ai-feed",
+    "skillName": "AI视频号信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "youtube-digest",
+    "skillName": "YouTube 提文案",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "gzh-ai-feed",
+    "skillName": "AI公众号信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-ai-feed",
+    "skillName": "AI小红书信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-ai-feed",
+    "skillName": "AI抖音信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "cultural-tourism-xiaohongshu-feed",
+    "skillName": "文旅小红书信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "cultural-tourism-wechat-feed",
+    "skillName": "文旅公众号信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "cultural-tourism-douyin-feed",
+    "skillName": "文旅抖音信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "cultural-tourism-bilibili-feed",
+    "skillName": "文旅B站信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "bilibili-portfolio-search",
+    "skillName": "B站搜账号下作品集",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "bilibili-comment",
+    "skillName": "B站作品评论分析",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wecht-copywrite-alchemy",
+    "skillName": "公众号复刻蒸馏写作技能",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "multi-copywrite-alchemy",
+    "skillName": "多平台复刻蒸馏写作技能",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-copywrite-alchemy",
+    "skillName": "抖音复刻蒸馏写作技能",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "ai-intelligence-investigator",
+    "skillName": "A股情报调查员",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "redfox-skill-generator",
+    "skillName": "红狐Skill生成器",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "kimi-websearch",
+    "skillName": "Kimi WebSearch",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-title-score",
+    "skillName": "小红书标题生成与评分",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "video-prompt-expert",
+    "skillName": "视频提示词生成器（Seedance2.0）",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "playlet-xiaohongshu-feed",
+    "skillName": "短剧-小红书信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "multi-wordcheck",
+    "skillName": "多平台违禁词检测",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "multi-content-feed",
+    "skillName": "全网内容出海信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "deepseek-websearch",
+    "skillName": "Deepseek WebSearch",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "kuaishou-ai-feed",
+    "skillName": "AI快手信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "bilibili-ai-feed",
+    "skillName": "AI B站信息源",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "toutiao-search",
+    "skillName": "今日头条爆款内容查询",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "stock-feed",
+    "skillName": "A股每日新闻",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "doubao-websearch",
+    "skillName": "豆包 WebSearch",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-cover",
+    "skillName": "小红书封面图制作",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "cn-last30days",
+    "skillName": "Last 30 Days—CN版",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "seedream-5-lite",
+    "skillName": "seedream 5.0 lite",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "seedance-video-gen",
+    "skillName": "Seedance2.0",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "optimize-skill-md",
+    "skillName": "SKILL.md 优化工具",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-daily-hot",
+    "skillName": "抖音每日热门作品榜",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-write",
+    "skillName": "小红书笔记创作",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-weeklytop",
+    "skillName": "小红书七日爆款笔记",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "trending-hub-top10",
+    "skillName": "全网聚合热点榜单top10",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-top-account",
+    "skillName": "抖音热门账号推荐",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "trending-hub",
+    "skillName": "全网热搜查询",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-top-account",
+    "skillName": "公众号热门账号推荐",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-hot-trend",
+    "skillName": "抖音热榜神器",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-dailytop",
+    "skillName": "小红书每日爆款笔记",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-prohibited-word",
+    "skillName": "抖音违禁词检测",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-prohibited-word",
+    "skillName": "公众号违禁词检测",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-prohibited-word",
+    "skillName": "小红书违禁词检测",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "multi-rewrite",
+    "skillName": "多平台文案风格改写",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-rewrite",
+    "skillName": "公众号文案改写",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xhs-title-scorer",
+    "skillName": "小红书爆款标题打分器",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-note-analyzer",
+    "skillName": "小红书笔记优化助手",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-rewrite",
+    "skillName": "小红书文案改写",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "zhihu-rewrite",
+    "skillName": "知乎文案改写",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "wechat-title",
+    "skillName": "公众号标题生成与评分",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-content-surge",
+    "skillName": "抖音每日点赞飙升榜",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-weekly-surge",
+    "skillName": "抖音七日点赞飙升榜",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "douyin-rise-ranking",
+    "skillName": "抖音涨粉账号推荐",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-crawler",
+    "skillName": "小红书作品爬取",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "xiaohongshu-lowtop",
+    "skillName": "小红书低粉爆款笔记",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "bilibili-keywords-search",
+    "skillName": "B站关键词搜作品",
+    "skillNameEn": ""
+  },
+  {
+    "skillCode": "bilibili-keyword-account",
+    "skillName": "B站关键词搜账号",
+    "skillNameEn": ""
+  }
+]

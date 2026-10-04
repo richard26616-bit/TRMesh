@@ -1,0 +1,849 @@
+[
+  {
+    "sourceSkill": "tiktok-topic-aweme-list",
+    "sourceName": "获取TikTok指定话题作品数据",
+    "status": "direct",
+    "targetSkill": "tiktok-topic-aweme-list",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "twitter-work-search",
+    "sourceName": "X(Twitter)作品搜索",
+    "status": "direct",
+    "targetSkill": "twitter-work-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "x-subscribe",
+    "sourceName": "X (Twitter) 订阅账号推文",
+    "status": "composed",
+    "targetSkill": "x-account-brief",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "x-entrepreneur-rank",
+    "sourceName": "X (Twitter) 企业家榜单",
+    "status": "partial",
+    "targetSkill": "x-candidate-research",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "x-top-account",
+    "sourceName": "X (Twitter) 热门账号榜",
+    "status": "partial",
+    "targetSkill": "x-candidate-research",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "gzh-toutiao-growth-rank",
+    "sourceName": "公众号头条增长榜",
+    "status": "partial",
+    "targetSkill": "wechat-fastest-growing",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-account-diagnosis",
+    "sourceName": "抖音账号诊断",
+    "status": "composed",
+    "targetSkill": "douyin-account-diagnosis",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-fastest-growing",
+    "sourceName": "公众号阅读增长榜",
+    "status": "partial",
+    "targetSkill": "wechat-fastest-growing",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-video-downloader",
+    "sourceName": "小红书视频下载",
+    "status": "partial",
+    "targetSkill": "xiaohongshu-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "image-gen",
+    "sourceName": "GPT-image2",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册 GPT-image2 图片生成接口。"
+  },
+  {
+    "sourceSkill": "visual-ops-writer",
+    "sourceName": "图文运营创作器",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "图文创作中的图片生成功能没有注册接口；文字创作可用各平台写作 Skill。"
+  },
+  {
+    "sourceSkill": "douyin-search",
+    "sourceName": "抖音热门作品查询",
+    "status": "direct",
+    "targetSkill": "douyin-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-search",
+    "sourceName": "公众号热门文章查询",
+    "status": "direct",
+    "targetSkill": "wechat-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-search",
+    "sourceName": "小红书爆款笔记查询",
+    "status": "direct",
+    "targetSkill": "xiaohongshu-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "pdf-image-text-extractor",
+    "sourceName": "PDF和图片文字提取",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册 PDF 解析或 OCR 接口。"
+  },
+  {
+    "sourceSkill": "gzh-astock-top",
+    "sourceName": "A股公众号大V",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有可信 A 股大 V 榜单来源；公众号搜索不等于股票权威排名。"
+  },
+  {
+    "sourceSkill": "stock-analysis",
+    "sourceName": "股票分析专家-公众号股票大V蒸馏",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有行情、交易与财报接口，无法完成该股票分析契约。"
+  },
+  {
+    "sourceSkill": "investor-distiller",
+    "sourceName": "公众号投资博主蒸馏器",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "缺少投资策略与历史收益验证数据；不能把文章风格分析包装为策略验证。"
+  },
+  {
+    "sourceSkill": "gzh-search-crawler",
+    "sourceName": "公众号搜索爬虫",
+    "status": "direct",
+    "targetSkill": "gzh-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-inspiration",
+    "sourceName": "小红书内容灵感专家",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-inspiration",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-creator",
+    "sourceName": "小红书爆款内容创作专家",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-write",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-creator",
+    "sourceName": "公众号内容工坊",
+    "status": "composed",
+    "targetSkill": "wechat-write",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-account-analyzer",
+    "sourceName": "公众号账号诊断",
+    "status": "composed",
+    "targetSkill": "wechat-account-analyzer",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-works-crawler",
+    "sourceName": "抖音作品爬取",
+    "status": "direct",
+    "targetSkill": "douyin-works-crawler",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-original-hot",
+    "sourceName": "公众号热门原创文章",
+    "status": "partial",
+    "targetSkill": "wechat-original-hot",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-10w-hot",
+    "sourceName": "公众号 10w+文章",
+    "status": "partial",
+    "targetSkill": "wechat-10w-hot",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "global-ai-news-brief",
+    "sourceName": "全球AI新闻简报",
+    "status": "composed",
+    "targetSkill": "multi-content-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "playlet-douyin-feed",
+    "sourceName": "短剧-抖音信息源",
+    "status": "composed",
+    "targetSkill": "playlet-douyin-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "playlet-wechat-feed",
+    "sourceName": "短剧-公众号信息源",
+    "status": "composed",
+    "targetSkill": "playlet-wechat-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "playlet-bili-feed",
+    "sourceName": "短剧-B站信息源",
+    "status": "composed",
+    "targetSkill": "playlet-bili-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "weibo-comment-search",
+    "sourceName": "微博评论分析",
+    "status": "direct",
+    "targetSkill": "weibo-comment",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "weibo-realtime-search",
+    "sourceName": "微博博文搜索",
+    "status": "direct",
+    "targetSkill": "weibo-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "weibo-hot-search",
+    "sourceName": "微博热搜",
+    "status": "direct",
+    "targetSkill": "weibo-hot-topic-radar",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "weibo-post-search",
+    "sourceName": "微博账号作品回采",
+    "status": "composed",
+    "targetSkill": "weibo-account-monitor",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "kuaishou-video-extract",
+    "sourceName": "快手视频提文案",
+    "status": "partial",
+    "targetSkill": "kuaishou-caption-extract",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "kuaishou-search",
+    "sourceName": "快手作品搜索",
+    "status": "direct",
+    "targetSkill": "kuaishou-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-account-analyzer",
+    "sourceName": "小红书账号深度诊断",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-account-analyzer",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "gzh-subscribe",
+    "sourceName": "公众号订阅追踪",
+    "status": "composed",
+    "targetSkill": "gzh-subscribe",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-similar-account",
+    "sourceName": "抖音相似账号推荐",
+    "status": "partial",
+    "targetSkill": "douyin-similar-account",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "tiktok-home-downloader",
+    "sourceName": "TikTok主页视频批量提取",
+    "status": "partial",
+    "targetSkill": "tiktok-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-channels-crawler",
+    "sourceName": "视频号作品查询",
+    "status": "composed",
+    "targetSkill": "wechat-channel-brief",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-similar-account",
+    "sourceName": "公众号相似账号推荐",
+    "status": "partial",
+    "targetSkill": "wechat-similar-account",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-subscribe",
+    "sourceName": "抖音账号订阅追踪",
+    "status": "composed",
+    "targetSkill": "douyin-subscribe",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-similar-account",
+    "sourceName": "小红书相似账号推荐",
+    "status": "partial",
+    "targetSkill": "xiaohongshu-similar-account",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "account-video-downloader",
+    "sourceName": "多平台账号主页视频提取器 / Account Video Downloader",
+    "status": "partial",
+    "targetSkill": "account-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "bilibili-search-download",
+    "sourceName": "B站搜索批量下载",
+    "status": "direct",
+    "targetSkill": "bilibili-search-download",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "overseas-trending-search",
+    "sourceName": "海外跨平台热文搜索",
+    "status": "direct",
+    "targetSkill": "overseas-trending-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "youtube-comment",
+    "sourceName": "YouTube视频评论分析",
+    "status": "direct",
+    "targetSkill": "youtube-comment",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-video-downloader",
+    "sourceName": "抖音主页视频批量提取",
+    "status": "partial",
+    "targetSkill": "douyin-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "twitter-comment",
+    "sourceName": "X(Twitter)作品评论分析",
+    "status": "direct",
+    "targetSkill": "twitter-comment",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "geo-analyzer",
+    "sourceName": "品牌GEO分析",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有多模型答案采样、搜索引擎排名或品牌引用评估接口。"
+  },
+  {
+    "sourceSkill": "video-downloader",
+    "sourceName": "短视频下载器",
+    "status": "partial",
+    "targetSkill": "video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-cover",
+    "sourceName": "公众号封面图制作",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册图片生成接口；不能生成实际封面文件。"
+  },
+  {
+    "sourceSkill": "wechat-write",
+    "sourceName": "公众号文案创作",
+    "status": "composed",
+    "targetSkill": "wechat-write",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-top-account",
+    "sourceName": "小红书热门账号推荐",
+    "status": "partial",
+    "targetSkill": "xiaohongshu-top-account",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "bilibili-video-downloader",
+    "sourceName": "B站视频下载",
+    "status": "partial",
+    "targetSkill": "bilibili-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "tiktok-video-downloader",
+    "sourceName": "TikTok视频下载",
+    "status": "partial",
+    "targetSkill": "tiktok-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "youtube-video-downloader",
+    "sourceName": "YouTube视频下载",
+    "status": "partial",
+    "targetSkill": "youtube-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "instagram-video-downloader",
+    "sourceName": "Instagram视频下载",
+    "status": "partial",
+    "targetSkill": "instagram-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-video-downloader",
+    "sourceName": "视频号视频下载",
+    "status": "partial",
+    "targetSkill": "wechat-video-downloader",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "twitter-video-downloader",
+    "sourceName": "X(Twitter)视频下载",
+    "status": "partial",
+    "targetSkill": "x-video-extract",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "kuaishou-comment",
+    "sourceName": "快手评论分析",
+    "status": "direct",
+    "targetSkill": "kuaishou-comment",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-channels-ai-feed",
+    "sourceName": "AI视频号信息源",
+    "status": "composed",
+    "targetSkill": "wechat-channels-ai-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "youtube-digest",
+    "sourceName": "YouTube 提文案",
+    "status": "partial",
+    "targetSkill": "youtube-digest",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "gzh-ai-feed",
+    "sourceName": "AI公众号信息源",
+    "status": "composed",
+    "targetSkill": "gzh-ai-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-ai-feed",
+    "sourceName": "AI小红书信息源",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-ai-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-ai-feed",
+    "sourceName": "AI抖音信息源",
+    "status": "composed",
+    "targetSkill": "douyin-ai-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "cultural-tourism-xiaohongshu-feed",
+    "sourceName": "文旅小红书信息源",
+    "status": "composed",
+    "targetSkill": "cultural-tourism-xiaohongshu-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "cultural-tourism-wechat-feed",
+    "sourceName": "文旅公众号信息源",
+    "status": "composed",
+    "targetSkill": "cultural-tourism-wechat-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "cultural-tourism-douyin-feed",
+    "sourceName": "文旅抖音信息源",
+    "status": "composed",
+    "targetSkill": "cultural-tourism-douyin-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "cultural-tourism-bilibili-feed",
+    "sourceName": "文旅B站信息源",
+    "status": "composed",
+    "targetSkill": "cultural-tourism-bilibili-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "bilibili-portfolio-search",
+    "sourceName": "B站搜账号下作品集",
+    "status": "direct",
+    "targetSkill": "bilibili-portfolio-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "bilibili-comment",
+    "sourceName": "B站作品评论分析",
+    "status": "direct",
+    "targetSkill": "bilibili-comment",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wecht-copywrite-alchemy",
+    "sourceName": "公众号复刻蒸馏写作技能",
+    "status": "composed",
+    "targetSkill": "wechat-reference-rewrite",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "multi-copywrite-alchemy",
+    "sourceName": "多平台复刻蒸馏写作技能",
+    "status": "composed",
+    "targetSkill": "multi-reference-rewrite",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-copywrite-alchemy",
+    "sourceName": "抖音复刻蒸馏写作技能",
+    "status": "composed",
+    "targetSkill": "douyin-reference-rewrite",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "ai-intelligence-investigator",
+    "sourceName": "A股情报调查员",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "缺少行情、上市公司公告与金融数据核验接口。"
+  },
+  {
+    "sourceSkill": "redfox-skill-generator",
+    "sourceName": "红狐Skill生成器",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "第三方平台的 Skill 生成服务未注册；本仓库提供本地生成维护工具。"
+  },
+  {
+    "sourceSkill": "kimi-websearch",
+    "sourceName": "Kimi WebSearch",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册 Kimi 搜索接口。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-title-score",
+    "sourceName": "小红书标题生成与评分",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-title-score",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "video-prompt-expert",
+    "sourceName": "视频提示词生成器（Seedance2.0）",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有 Seedance 提示词验证与生成接口；模型专用效果无法验证。"
+  },
+  {
+    "sourceSkill": "playlet-xiaohongshu-feed",
+    "sourceName": "短剧-小红书信息源",
+    "status": "composed",
+    "targetSkill": "playlet-xiaohongshu-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "multi-wordcheck",
+    "sourceName": "多平台违禁词检测",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有平台权威违禁词库或审核接口，不能提供该检测能力。"
+  },
+  {
+    "sourceSkill": "multi-content-feed",
+    "sourceName": "全网内容出海信息源",
+    "status": "composed",
+    "targetSkill": "multi-content-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "deepseek-websearch",
+    "sourceName": "Deepseek WebSearch",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册 Deepseek 搜索接口。"
+  },
+  {
+    "sourceSkill": "kuaishou-ai-feed",
+    "sourceName": "AI快手信息源",
+    "status": "composed",
+    "targetSkill": "ks-ai-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "bilibili-ai-feed",
+    "sourceName": "AI B站信息源",
+    "status": "composed",
+    "targetSkill": "bili-ai-feed",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "toutiao-search",
+    "sourceName": "今日头条爆款内容查询",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "最新版 TikHub 的今日头条没有关键词搜索接口；保留链接文章解析替代项。"
+  },
+  {
+    "sourceSkill": "stock-feed",
+    "sourceName": "A股每日新闻",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有股市行情及官方公告数据源；社交帖子不等于金融新闻核验。"
+  },
+  {
+    "sourceSkill": "doubao-websearch",
+    "sourceName": "豆包 WebSearch",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册豆包搜索接口。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-cover",
+    "sourceName": "小红书封面图制作",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册图片生成接口；该旧入口下线，文字选题不等于封面生成。"
+  },
+  {
+    "sourceSkill": "cn-last30days",
+    "sourceName": "Last 30 Days—CN版",
+    "status": "composed",
+    "targetSkill": "cn-last30days",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "seedream-5-lite",
+    "sourceName": "seedream 5.0 lite",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册 Seedream 图片生成接口。"
+  },
+  {
+    "sourceSkill": "seedance-video-gen",
+    "sourceName": "Seedance2.0",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "未注册 Seedance 视频生成接口。"
+  },
+  {
+    "sourceSkill": "optimize-skill-md",
+    "sourceName": "SKILL.md 优化工具",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "不属于已注册数据 API 能力，本仓库维护指南覆盖静态校验。"
+  },
+  {
+    "sourceSkill": "douyin-daily-hot",
+    "sourceName": "抖音每日热门作品榜",
+    "status": "partial",
+    "targetSkill": "douyin-daily-hot",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-write",
+    "sourceName": "小红书笔记创作",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-write",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-weeklytop",
+    "sourceName": "小红书七日爆款笔记",
+    "status": "partial",
+    "targetSkill": "xiaohongshu-weeklytop",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "trending-hub-top10",
+    "sourceName": "全网聚合热点榜单top10",
+    "status": "direct",
+    "targetSkill": "trending-hub-top10",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-top-account",
+    "sourceName": "抖音热门账号推荐",
+    "status": "partial",
+    "targetSkill": "douyin-top-account",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "trending-hub",
+    "sourceName": "全网热搜查询",
+    "status": "direct",
+    "targetSkill": "trending-hub",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-top-account",
+    "sourceName": "公众号热门账号推荐",
+    "status": "partial",
+    "targetSkill": "wechat-top-account",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-hot-trend",
+    "sourceName": "抖音热榜神器",
+    "status": "direct",
+    "targetSkill": "douyin-hot-trend",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-dailytop",
+    "sourceName": "小红书每日爆款笔记",
+    "status": "partial",
+    "targetSkill": "xiaohongshu-dailytop",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-prohibited-word",
+    "sourceName": "抖音违禁词检测",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有抖音官方词库或内容审核接口。"
+  },
+  {
+    "sourceSkill": "wechat-prohibited-word",
+    "sourceName": "公众号违禁词检测",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有微信官方词库或内容审核接口。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-prohibited-word",
+    "sourceName": "小红书违禁词检测",
+    "status": "unsupported",
+    "targetSkill": null,
+    "reason": "没有小红书官方词库或内容审核接口。"
+  },
+  {
+    "sourceSkill": "multi-rewrite",
+    "sourceName": "多平台文案风格改写",
+    "status": "composed",
+    "targetSkill": "multi-reference-rewrite",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-rewrite",
+    "sourceName": "公众号文案改写",
+    "status": "composed",
+    "targetSkill": "wechat-reference-rewrite",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xhs-title-scorer",
+    "sourceName": "小红书爆款标题打分器",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-title-score",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-note-analyzer",
+    "sourceName": "小红书笔记优化助手",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-note-analyzer",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-rewrite",
+    "sourceName": "小红书文案改写",
+    "status": "composed",
+    "targetSkill": "xiaohongshu-reference-rewrite",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "zhihu-rewrite",
+    "sourceName": "知乎文案改写",
+    "status": "composed",
+    "targetSkill": "zhihu-reference-rewrite",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "wechat-title",
+    "sourceName": "公众号标题生成与评分",
+    "status": "composed",
+    "targetSkill": "wechat-title",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-content-surge",
+    "sourceName": "抖音每日点赞飙升榜",
+    "status": "partial",
+    "targetSkill": "douyin-content-surge",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-weekly-surge",
+    "sourceName": "抖音七日点赞飙升榜",
+    "status": "partial",
+    "targetSkill": "douyin-weekly-surge",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "douyin-rise-ranking",
+    "sourceName": "抖音涨粉账号推荐",
+    "status": "partial",
+    "targetSkill": "douyin-rise-ranking",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-crawler",
+    "sourceName": "小红书作品爬取",
+    "status": "direct",
+    "targetSkill": "xiaohongshu-crawler",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "xiaohongshu-lowtop",
+    "sourceName": "小红书低粉爆款笔记",
+    "status": "partial",
+    "targetSkill": "xiaohongshu-lowtop",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "bilibili-keywords-search",
+    "sourceName": "B站关键词搜作品",
+    "status": "direct",
+    "targetSkill": "bilibili-keywords-search",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  },
+  {
+    "sourceSkill": "bilibili-keyword-account",
+    "sourceName": "B站关键词搜账号",
+    "status": "composed",
+    "targetSkill": "bilibili-keywords-accounts",
+    "reason": "支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。"
+  }
+]

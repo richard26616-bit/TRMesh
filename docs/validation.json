@@ -1,0 +1,10 @@
+{
+  "skills": 122,
+  "enabled": 120,
+  "uniqueBoundEndpoints": 101,
+  "requestExamplesValidated": 460,
+  "referenceScenarios": 121,
+  "officialSchemaCompared": true,
+  "liveDataVerified": false,
+  "clientBoundaryTests": 4
+}

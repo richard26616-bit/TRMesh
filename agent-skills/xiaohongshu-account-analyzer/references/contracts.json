@@ -1,0 +1,967 @@
+{
+  "skill": "xiaohongshu-account-analyzer",
+  "version": "2.0.0",
+  "sourceVersion": "V5.3.2",
+  "validatedAt": "2026-10-04",
+  "endpoints": {
+    "xiaohongshu-app_v2-get_user_info": {
+      "method": "GET",
+      "path": "/api/v1/xiaohongshu/app_v2/get_user_info",
+      "operationId": "get_user_info_api_v1_xiaohongshu_app_v2_get_user_info_get",
+      "summary": "获取用户信息/Get user info",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "用户ID/User ID",
+            "default": "",
+            "title": "User Id",
+            "example": "61b46d790000000010008153"
+          },
+          "share_text": {
+            "type": "string",
+            "description": "分享链接，支持xiaohongshu.com/xhslink.com/xhslink.cn/Share link, supports xiaohongshu.com, xhslink.com, xhslink.cn",
+            "default": "",
+            "title": "Share Text",
+            "example": "https://xhslink.com/m/3ZSCJZAMz0a"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [
+        [
+          "user_id",
+          "share_text"
+        ]
+      ],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "user_id": "61b46d790000000010008153"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取指定用户的详细信息\n### ⚠️ 注意事项（重要）:\n- 请务必确保传入的 `user_id` 正确有效。如果传入错误或不存在的用户ID，接口仍会正常响应，但 `data` 中会返回小红书官方的\"服务异常\"信息。\n- 由于请求已实际发出并成功返回，此类请求 **同样会正常计费扣费**，请在调用前自行校验用户ID的有效性。\n### 参数:\n- user_id: 用户ID，如 \"61b46d790000000010008153\"\n- share_text: 小红书分享链接，支持APP和Web端分享链接，支持 `xiaohongshu.com` 长链接、`xhslink.com` 和 `xhslink.cn` 短链接\n- 优先使用`user_id`，如果没有则使用`share_text`，两个参数二选一，如都携带则以`user_id`为准。\n### 返回:\n- 用户详细信息，包含昵称、头像、简介、粉丝数、关注数、笔记数等\n\n# [English]\n### Purpose:\n- Get detailed info of a specified user\n### ⚠️ Notice (Important):\n- Make sure the `user_id` you pass is correct and valid. If a wrong or non-existent user ID is passed, the endpoint will still respond normally, but the `data` field will contain a \"service error\" message from Xiaohongshu official.\n- Since the request has actually been sent and returned successfully, such requests **will still be billed as normal**. Please validate the user ID before calling.\n### Parameters:\n- user_id: User ID, e.g. \"61b46d790000000010008153\"\n- share_text: Xiaohongshu sharing link, supports APP and Web sharing links, including `xiaohongshu.com` full links, `xhslink.com` and `xhslink.cn` short links\n- Prefer to use `user_id`, if not, use `share_text`, one of the two parameters is required, if both are carried, `user_id` shall prevail.\n### Return:\n- User detailed info, including nickname, avatar, bio, follower count, following count, note count, etc.\n\n# [示例/Example]\nuser_id=\"61b46d790000000010008153\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "xiaohongshu-app_v2-get_user_posted_notes": {
+      "method": "GET",
+      "path": "/api/v1/xiaohongshu/app_v2/get_user_posted_notes",
+      "operationId": "get_user_posted_notes_api_v1_xiaohongshu_app_v2_get_user_posted_notes_get",
+      "summary": "获取用户笔记列表/Get user posted notes",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "string",
+            "description": "用户ID/User ID",
+            "default": "",
+            "title": "User Id",
+            "example": "61b46d790000000010008153"
+          },
+          "share_text": {
+            "type": "string",
+            "description": "分享链接，支持xiaohongshu.com/xhslink.com/xhslink.cn/Share link, supports xiaohongshu.com, xhslink.com, xhslink.cn",
+            "default": "",
+            "title": "Share Text",
+            "example": "http://xhslink.com/o/8GqargIxrko"
+          },
+          "cursor": {
+            "type": "string",
+            "description": "分页游标，首次请求留空/Pagination cursor, leave empty for first request",
+            "default": "",
+            "title": "Cursor",
+            "example": ""
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [
+        [
+          "user_id",
+          "share_text"
+        ]
+      ],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "user_id": "61b46d790000000010008153"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取指定用户已发布的笔记列表，使用游标分页\n### ⚠️ 计费提示:\n- 如果传入错误或不存在的用户ID（或分享链接解析失败），接口仍会正常响应，但 `data` 中会返回上游\"服务异常\"信息，该请求 **同样会正常计费扣费**，请在调用前确保参数有效。\n### 参数:\n- user_id: 用户ID，如 \"61b46d790000000010008153\"\n- share_text: 小红书分享链接，支持APP和Web端分享链接，支持 `xiaohongshu.com` 长链接、`xhslink.com` 和 `xhslink.cn` 短链接\n- 优先使用`user_id`，如果没有则使用`share_text`，两个参数二选一，如都携带则以`user_id`为准。\n- cursor: 分页游标，首次请求留空，翻页时传入上一次响应中返回的 cursor 值\n    - 通常cursor取值方式为notes列表的最后一条笔记的 note_id\n    - JSON路径示例: `$.data.data.notes[-1].cursor`\n### 返回:\n- 用户笔记列表数据，包含笔记基本信息和分页信息\n### 翻页说明:\n- 首次请求：cursor留空\n- 翻页请求：传入上一次响应中返回的 cursor 值\n\n# [English]\n### Purpose:\n- Get list of notes posted by a specified user, using cursor pagination\n### ⚠️ Billing Notice:\n- If a wrong or non-existent user ID is passed (or the share link fails to parse), the endpoint still responds normally, but the `data` field will contain an upstream \"service error\" message. Such requests **will still be billed as normal**. Please make sure the parameters are valid before calling.\n### Parameters:\n- user_id: User ID, e.g. \"61b46d790000000010008153\"\n- share_text: Xiaohongshu sharing link, supports APP and Web sharing links, including `xiaohongshu.com` full links, `xhslink.com` and `xhslink.cn` short links\n- Prefer to use `user_id`, if not, use `share_text`, one of the two parameters is required, if both are carried, `user_id` shall prevail.\n- cursor: Pagination cursor, leave empty for first request, pass cursor value from previous response for next page\n    - The cursor is usually the note_id of the last note in the notes list\n    - JSON path example: `$.data.data.notes[-1].cursor`\n### Return:\n- User posted notes list data, including basic note info and pagination info\n### Pagination Guide:\n- First request: leave cursor empty\n- Next page: pass cursor value from previous response\n\n# [示例/Example]\nuser_id=\"61b46d790000000010008153\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "xiaohongshu-app_v2-get_image_note_detail": {
+      "method": "GET",
+      "path": "/api/v1/xiaohongshu/app_v2/get_image_note_detail",
+      "operationId": "get_image_note_detail_api_v1_xiaohongshu_app_v2_get_image_note_detail_get",
+      "summary": "获取图文笔记详情/Get image note detail",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "笔记ID/Note ID",
+            "default": "",
+            "title": "Note Id",
+            "example": "697c0eee000000000a03c308"
+          },
+          "share_text": {
+            "type": "string",
+            "description": "分享链接，支持xiaohongshu.com/xhslink.com/xhslink.cn/Share link, supports xiaohongshu.com, xhslink.com, xhslink.cn",
+            "default": "",
+            "title": "Share Text",
+            "example": "http://xhslink.com/o/8GqargIxrko"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [
+        [
+          "note_id",
+          "share_text"
+        ]
+      ],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "note_id": "697c0eee000000000a03c308"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取图文笔记的完整详情数据\n### 接口优先级:\n- ⭐ 小红书接口推荐优先级: `App V2（本接口）` > `App` > `Web V2` > `Web`\n### ⚠️ 笔记类型说明（重要）:\n- 小红书笔记分为两种类型：`图文笔记（normal）` 和 `视频笔记（video）`，使用时务必区分。\n- 本接口可以获取 **图文笔记和视频笔记** 两种类型的数据。\n- 但受小红书官方限制：当请求的笔记为视频笔记时，本接口 **不会返回视频文件的播放链接，只会返回视频封面图**。\n- 如需获取视频播放链接，请使用 `/get_video_note_detail`（视频笔记接口），该接口只能获取视频笔记的数据。\n### 推荐调用流程（不确定笔记类型时）:\n- 1. 优先请求本接口（图文笔记接口）。\n- 2. 通过响应中的笔记类型字段（如 `type` 是否为 `video`）判断是否为视频笔记。\n- 3. 如果是视频笔记且需要视频播放链接，再使用相同的 note_id 请求一次 `/get_video_note_detail` 获取视频播放地址。\n### ⚠️ 计费提示:\n- 如果传入错误或不存在的笔记ID（或分享链接解析失败），接口仍会正常响应，但 `data` 中会返回上游\"服务异常\"信息，该请求 **同样会正常计费扣费**，请在调用前确保参数有效。\n### 参数:\n- note_id: 笔记ID，如 \"697c0eee000000000a03c308\"\n- share_text: 小红书分享链接，支持APP和Web端分享链接，支持 `xiaohongshu.com` 长链接、`xhslink.com` 和 `xhslink.cn` 短链接\n- 优先使用`note_id`，如果没有则使用`share_text`，两个参数二选一，如都携带则以`note_id`为准。\n### 返回:\n- 图文笔记详情数据，包含笔记内容、图片列表、作者信息、互动数据等\n- 视频笔记仅返回封面图等基础数据，不包含视频播放链接\n\n# [English]\n### Purpose:\n- Get full detail data of an image note\n### API Priority:\n- ⭐ Xiaohongshu API priority: `App V2 (this)` > `App` > `Web V2` > `Web`\n### ⚠️ Note Type Notice (Important):\n- Xiaohongshu notes come in two types: `image notes (normal)` and `video notes (video)`. Make sure to distinguish them when using the APIs.\n- This endpoint can fetch data for **both image notes and video notes**.\n- However, due to Xiaohongshu's official restriction: when the requested note is a video note, this endpoint **will NOT return the video play URL, only the video cover image**.\n- To get the video play URL, use `/get_video_note_detail` (video note endpoint), which can only fetch data of video notes.\n### Recommended Workflow (when note type is unknown):\n- 1. Request this endpoint (image note endpoint) first.\n- 2. Check the note type field in the response (e.g. whether `type` is `video`) to determine if it is a video note.\n- 3. If it is a video note and you need the video play URL, request `/get_video_note_detail` again with the same note_id to get the video play URL.\n### ⚠️ Billing Notice:\n- If a wrong or non-existent note ID is passed (or the share link fails to parse), the endpoint still responds normally, but the `data` field will contain an upstream \"service error\" message. Such requests **will still be billed as normal**. Please make sure the parameters are valid before calling.\n### Parameters:\n- note_id: Note ID, e.g. \"697c0eee000000000a03c308\"\n- share_text: Xiaohongshu sharing link, supports APP and Web sharing links, including `xiaohongshu.com` full links, `xhslink.com` and `xhslink.cn` short links\n- Prefer to use `note_id`, if not, use `share_text`, one of the two parameters is required, if both are carried, `note_id` shall prevail.\n### Return:\n- Image note detail data, including note content, image list, author info, interaction data, etc.\n- For video notes, only basic data such as the cover image is returned, without the video play URL\n\n# [示例/Example]\nnote_id=\"697c0eee000000000a03c308\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    },
+    "xiaohongshu-app_v2-get_video_note_detail": {
+      "method": "GET",
+      "path": "/api/v1/xiaohongshu/app_v2/get_video_note_detail",
+      "operationId": "get_video_note_detail_api_v1_xiaohongshu_app_v2_get_video_note_detail_get",
+      "summary": "获取视频笔记详情/Get video note detail",
+      "querySchema": {
+        "type": "object",
+        "properties": {
+          "note_id": {
+            "type": "string",
+            "description": "笔记ID/Note ID",
+            "default": "",
+            "title": "Note Id",
+            "example": "697c0eee000000000a03c308"
+          },
+          "share_text": {
+            "type": "string",
+            "description": "分享链接，支持xiaohongshu.com/xhslink.com/xhslink.cn/Share link, supports xiaohongshu.com, xhslink.com, xhslink.cn",
+            "default": "",
+            "title": "Share Text",
+            "example": "http://xhslink.com/o/8GqargIxrko"
+          }
+        },
+        "required": [],
+        "additionalProperties": false
+      },
+      "bodySchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "bodyRequired": false,
+      "requiresAny": [
+        [
+          "note_id",
+          "share_text"
+        ]
+      ],
+      "documentedEnums": {
+        "query": {},
+        "body": {}
+      },
+      "example": {
+        "query": {
+          "note_id": "697c0eee000000000a03c308"
+        },
+        "body": null
+      },
+      "description": "# [中文]\n### 用途:\n- 获取视频笔记的完整详情数据\n### ⚠️ 笔记类型说明（重要）:\n- 小红书笔记分为两种类型：`图文笔记（normal）` 和 `视频笔记（video）`，使用时务必区分。\n- 本接口 **只能获取视频笔记的数据**，如果传入图文笔记的 note_id 将无法请求到内容，此限制来自小红书官方。\n- 图文笔记接口 `/get_image_note_detail` 可以获取图文和视频两种笔记，但对视频笔记不会返回视频文件的播放链接，只会返回视频封面图。\n### 推荐调用流程（不确定笔记类型时）:\n- 1. 优先请求 `/get_image_note_detail`（图文笔记接口）。\n- 2. 通过响应中的笔记类型字段（如 `type` 是否为 `video`）判断是否为视频笔记。\n- 3. 如果是视频笔记，再使用相同的 note_id 请求本接口获取视频播放地址。\n### ⚠️ 计费提示:\n- 如果传入错误或不存在的笔记ID（或分享链接解析失败），接口仍会正常响应，但 `data` 中会返回上游\"服务异常\"信息，该请求 **同样会正常计费扣费**，请在调用前确保参数有效。\n### 参数:\n- note_id: 笔记ID，如 \"697c0eee000000000a03c308\"\n- share_text: 小红书分享链接，支持APP和Web端分享链接，支持 `xiaohongshu.com` 长链接、`xhslink.com` 和 `xhslink.cn` 短链接\n- 优先使用`note_id`，如果没有则使用`share_text`，两个参数二选一，如都携带则以`note_id`为准。\n### 返回:\n- 视频笔记详情数据，包含视频播放地址、封面图、作者信息、互动数据等\n\n# [English]\n### Purpose:\n- Get full detail data of a video note\n### ⚠️ Note Type Notice (Important):\n- Xiaohongshu notes come in two types: `image notes (normal)` and `video notes (video)`. Make sure to distinguish them when using the APIs.\n- This endpoint can **ONLY fetch data of video notes**. Passing the note_id of an image note will fail to get any content. This restriction comes from Xiaohongshu official.\n- The image note endpoint `/get_image_note_detail` can fetch both image and video notes, but for video notes it will NOT return the video play URL, only the video cover image.\n### Recommended Workflow (when note type is unknown):\n- 1. Request `/get_image_note_detail` (image note endpoint) first.\n- 2. Check the note type field in the response (e.g. whether `type` is `video`) to determine if it is a video note.\n- 3. If it is a video note, request this endpoint again with the same note_id to get the video play URL.\n### ⚠️ Billing Notice:\n- If a wrong or non-existent note ID is passed (or the share link fails to parse), the endpoint still responds normally, but the `data` field will contain an upstream \"service error\" message. Such requests **will still be billed as normal**. Please make sure the parameters are valid before calling.\n### Parameters:\n- note_id: Note ID, e.g. \"697c0eee000000000a03c308\"\n- share_text: Xiaohongshu sharing link, supports APP and Web sharing links, including `xiaohongshu.com` full links, `xhslink.com` and `xhslink.cn` short links\n- Prefer to use `note_id`, if not, use `share_text`, one of the two parameters is required, if both are carried, `note_id` shall prevail.\n### Return:\n- Video note detail data, including video play URL, cover image, author info, interaction data, etc.\n\n# [示例/Example]\nnote_id=\"697c0eee000000000a03c308\"",
+      "responseSchemas": {
+        "200": {
+          "description": "Successful Response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "code": {
+                    "type": "integer",
+                    "title": "Code",
+                    "description": "HTTP status code | HTTP状态码",
+                    "default": 200
+                  },
+                  "request_id": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Request Id",
+                    "description": "Unique request identifier | 唯一请求标识符"
+                  },
+                  "message": {
+                    "type": "string",
+                    "title": "Message",
+                    "description": "Response message (EN-US) | 响应消息 (English)",
+                    "default": "Request successful. This request will incur a charge."
+                  },
+                  "message_zh": {
+                    "type": "string",
+                    "title": "Message Zh",
+                    "description": "Response message (ZH-CN) | 响应消息 (中文)",
+                    "default": "请求成功，本次请求将被计费。"
+                  },
+                  "support": {
+                    "type": "string",
+                    "title": "Support",
+                    "description": "Support message | 支持消息",
+                    "default": "Discord: https://discord.gg/aMEAS8Xsvz"
+                  },
+                  "time": {
+                    "type": "string",
+                    "title": "Time",
+                    "description": "The time the response was generated | 生成响应的时间"
+                  },
+                  "time_stamp": {
+                    "type": "integer",
+                    "title": "Time Stamp",
+                    "description": "The timestamp the response was generated | 生成响应的时间戳"
+                  },
+                  "time_zone": {
+                    "type": "string",
+                    "title": "Time Zone",
+                    "description": "The timezone of the response time | 响应时间的时区",
+                    "default": "America/Los_Angeles"
+                  },
+                  "docs": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Docs",
+                    "description": "Link to the API Swagger documentation for this endpoint | 此端点的 API Swagger 文档链接"
+                  },
+                  "cache_message": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message",
+                    "description": "Cache message (EN-US) | 缓存消息 (English)",
+                    "default": "This response is cached and accessible via the URL below for 24 hours at no extra cost. The cache is for request tracing only — it doesn't affect the API's data freshness and won't be returned through the API again."
+                  },
+                  "cache_message_zh": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Message Zh",
+                    "description": "Cache message (ZH-CN) | 缓存消息 (中文)",
+                    "default": "本次响应已缓存，可通过下方 URL 直接查看，有效期 24 小时，访问缓存链接无额外费用。缓存仅用于请求溯源，不影响接口数据的时效性，也不会再次通过接口返回。"
+                  },
+                  "cache_url": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Cache Url",
+                    "description": "The URL to access the cached result | 访问缓存结果的 URL"
+                  },
+                  "router": {
+                    "type": "string",
+                    "title": "Router",
+                    "description": "The endpoint that generated this response | 生成此响应的端点",
+                    "default": ""
+                  },
+                  "params": {
+                    "title": "Params",
+                    "description": "The parameters used in the request | 请求中使用的参数",
+                    "default": {}
+                  },
+                  "data": {
+                    "anyOf": [
+                      {},
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "title": "Data",
+                    "description": "The response data | 响应数据"
+                  }
+                },
+                "type": "object",
+                "title": "ResponseModel"
+              }
+            }
+          }
+        },
+        "422": {
+          "description": "Validation Error",
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "detail": {
+                    "items": {
+                      "properties": {
+                        "loc": {
+                          "items": {
+                            "anyOf": [
+                              {
+                                "type": "string"
+                              },
+                              {
+                                "type": "integer"
+                              }
+                            ]
+                          },
+                          "type": "array",
+                          "title": "Location"
+                        },
+                        "msg": {
+                          "type": "string",
+                          "title": "Message"
+                        },
+                        "type": {
+                          "type": "string",
+                          "title": "Error Type"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "loc",
+                        "msg",
+                        "type"
+                      ],
+                      "title": "ValidationError"
+                    },
+                    "type": "array",
+                    "title": "Detail"
+                  }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
