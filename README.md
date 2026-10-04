@@ -9,12 +9,12 @@
 | 项目 | 结果 |
 | --- | --- |
 | 契约校验日期 | 2026-10-04 |
-| 官方 TikHub OpenAPI | V5.3.2，1,050 个接口：GET 825 / POST 225 |
+| TRMesh 注册接口快照 | 1,050 个接口：GET 825 / POST 225 |
 | 可安装 Skill | **120** |
 | 停用旧入口 | 2：今日头条关键词搜索、小红书图片封面生成 |
 | Skill 实际绑定接口 | **101** 个不同的方法／路径 |
 | 离线请求示例校验 | **460** 组 |
-| Redfox 场景覆盖评估 | **121** 项：直接支持 23、组合实现 42、部分支持 32、不支持 24 |
+| 场景覆盖评估 | **121** 项：直接支持 23、组合实现 42、部分支持 32、不支持 24 |
 
 这是一份 Skill 与接口契约仓库，不包含 TRMesh 服务端或密钥。静态契约、请求构造与本地系统目录已核对；**没有进行真实付费数据调用**。能否在线执行，还取决于你部署的网关版本、接口上线状态、开发者权限、余额以及数据服务状态。
 
@@ -86,7 +86,7 @@ $env:TRMESH_API_TOKEN = '<your-developer-token>'
 $env:PYTHONIOENCODING = 'utf-8'
 ```
 
-`TRMESH_BASE_URL` 是网关**根地址**，不含 `/openapi`、查询串或凭据。公开服务器必须使用 HTTPS；本地开发允许 `http://127.0.0.1:5207`。不要填 TikHub 或 Redfox 地址，不要使用后台登录 Token 代替开发者 Token。环境变量由运行进程读取，不提交到 Git。
+`TRMESH_BASE_URL` 是 TRMesh 网关**根地址**，不含 `/openapi`、查询串或凭据。公开服务器必须使用 HTTPS；本地开发允许 `http://127.0.0.1:5207`。认证使用 TRMesh 开发者 Token。环境变量由运行进程读取，不提交到 Git。
 
 以抖音搜索为例：
 
@@ -119,10 +119,10 @@ agent-skills/<name>/
 
 根目录还提供：
 
-- `catalog/`：Skill 目录、1,050 个官方操作索引、逐项场景映射及来源哈希。
+- `catalog/`：Skill 目录、1,050 个注册接口索引、逐项场景映射及契约快照哈希。
 - `tools/`：可复现生成器、经过审查的任务配方、离线校验器与调用器模板。
 - `docs/`：安装、成本、能力边界、接口同步、迁移与验证结果。
-- `.github/workflows/`：跨平台静态检查，以及手动／每周执行的官方契约变化检测。
+- `.github/workflows/`：跨平台静态检查，以及手动／每周执行的契约快照变化检测。
 
 ## 能力边界
 
@@ -140,18 +140,18 @@ python tools/validate_skills.py . --report docs/validation.json
 
 校验所有 Skill 的目录、触发声明、引用、白名单、契约、请求示例和场景映射，并测试参数拒绝、嵌套 Schema、网关地址限制及重定向凭据保护。此命令不会调用数据服务。
 
-带原始官方快照的完整对照：
+带原始契约快照的完整对照：
 
 ```shell
-python tools/validate_skills.py . --spec /path/to/tikhub-openapi.json
+python tools/validate_skills.py . --spec /path/to/contract-snapshot.json
 ```
 
-当前快照哈希见 [catalog/source.json](catalog/source.json)。来源变化时校验会报错，要求人工审查差异；不自动修改接口价格、上线状态或 Skill。
+当前快照哈希见 [catalog/source.json](catalog/source.json)。契约变化时校验会报错，要求人工审查差异；不自动修改接口价格、上线状态或 Skill。
 
 按 [维护指南](docs/maintenance.md) 更新接口与配方，按 [贡献指南](CONTRIBUTING.md) 提交改动。生成结果、可读说明和后台绑定必须来自同一契约版本。
 
-## 来源与许可
+## 许可
 
-使用场景参考 [Redfox Skills 广场](https://redfox.hk/skills)，流程、边界和调用器独立编写。请求与响应元数据来自 [TikHub 官方 OpenAPI](https://api.tikhub.io/openapi.json)／[接口文档](https://api.tikhub.io/docs)，通过 TRMesh 网关使用。没有移植第三方私有工具或密钥。
+所有 Skill 统一调用 TRMesh 网关的已注册接口，使用 TRMesh 开发者 Token。
 
-本项目原创代码与说明使用 [MIT License](LICENSE)。来源元数据及第三方名称的权利归其各自权利人，见 [NOTICE](NOTICE)。接口调用还需遵守部署方及数据提供方的服务约定。
+本项目原创代码与说明使用 [MIT License](LICENSE)。接口访问权限、额度、计费和限流以 TRMesh 网关配置为准。
