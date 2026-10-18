@@ -1,6 +1,6 @@
-# Redfox场景逐项能力映射
+# TRMesh场景逐项能力映射
 
-参考公开Skills广场的使用场景，独立编写TRMesh执行流程，不复制其正文或调用第三方工具。共121项。
+按TRMesh场景目录独立编写执行流程，不调用外部Skill工具。共121项。
 
 direct=对应数据直接获取；composed=数据+本地分析/创作；partial=仅满足部分功能，必须看限制；unsupported=没有注册能力，不发布假实现。下载类为媒体链接提取，增长类需真实趋势或两次快照。
 
@@ -83,7 +83,7 @@ direct=对应数据直接获取；composed=数据+本地分析/创作；partial=
 | `multi-copywrite-alchemy` | composed | [`multi-reference-rewrite`](../agent-skills/multi-reference-rewrite/SKILL.md) | 支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。 |
 | `douyin-copywrite-alchemy` | composed | [`douyin-reference-rewrite`](../agent-skills/douyin-reference-rewrite/SKILL.md) | 支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。 |
 | `ai-intelligence-investigator` | unsupported | — | 缺少行情、上市公司公告与金融数据核验接口。 |
-| `redfox-skill-generator` | unsupported | — | 第三方平台的 Skill 生成服务未注册；本仓库提供本地生成维护工具。 |
+| `skill-generator` | unsupported | — | 第三方平台的 Skill 生成服务未注册；本仓库提供本地生成维护工具。 |
 | `kimi-websearch` | unsupported | — | 未注册 Kimi 搜索接口。 |
 | `xiaohongshu-title-score` | composed | [`xiaohongshu-title-score`](../agent-skills/xiaohongshu-title-score/SKILL.md) | 支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。 |
 | `video-prompt-expert` | unsupported | — | 没有 Seedance 提示词验证与生成接口；模型专用效果无法验证。 |
@@ -93,7 +93,7 @@ direct=对应数据直接获取；composed=数据+本地分析/创作；partial=
 | `deepseek-websearch` | unsupported | — | 未注册 Deepseek 搜索接口。 |
 | `kuaishou-ai-feed` | composed | [`ks-ai-feed`](../agent-skills/ks-ai-feed/SKILL.md) | 支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。 |
 | `bilibili-ai-feed` | composed | [`bili-ai-feed`](../agent-skills/bili-ai-feed/SKILL.md) | 支持数据获取与本地分析；按目标Skill的采样、快照、媒体或模型分析边界执行。 |
-| `toutiao-search` | unsupported | — | 最新版 TikHub 的今日头条没有关键词搜索接口；保留链接文章解析替代项。 |
+| `toutiao-search` | unsupported | — | 当前注册的今日头条接口没有关键词搜索能力；保留链接文章解析替代项。 |
 | `stock-feed` | unsupported | — | 没有股市行情及官方公告数据源；社交帖子不等于金融新闻核验。 |
 | `doubao-websearch` | unsupported | — | 未注册豆包搜索接口。 |
 | `xiaohongshu-cover` | unsupported | — | 未注册图片生成接口；该旧入口下线，文字选题不等于封面生成。 |

@@ -385,8 +385,8 @@
     "skillNameEn": ""
   },
   {
-    "skillCode": "redfox-skill-generator",
-    "skillName": "红狐Skill生成器",
+    "skillCode": "skill-generator",
+    "skillName": "Skill生成器",
     "skillNameEn": ""
   },
   {

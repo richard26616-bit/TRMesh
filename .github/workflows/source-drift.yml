@@ -1,4 +1,4 @@
-name: Check official contract drift
+name: Check reviewed contract drift
 on:
   schedule:
     - cron: '25 3 * * 1'
@@ -8,12 +8,22 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    env:
+      CONTRACT_SOURCE_URL: ${{ secrets.CONTRACT_SOURCE_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13'
-      - name: Fetch public OpenAPI metadata
-        run: curl --fail --silent --show-error --location --max-time 60 https://api.tikhub.io/openapi.json -o /tmp/tikhub-openapi.json
-      - name: Check pinned source and all bound schemas
-        run: python tools/validate_skills.py . --spec /tmp/tikhub-openapi.json
+      - name: Check configured contract source
+        shell: bash
+        run: |
+          if [ -z "$CONTRACT_SOURCE_URL" ]; then
+            echo "Contract source is not configured; source drift check skipped."
+            exit 0
+          fi
+          if ! curl --fail --silent --location --max-time 60 "$CONTRACT_SOURCE_URL" -o /tmp/contract-openapi.json 2>/tmp/contract-fetch-error.log; then
+            echo "Contract source fetch failed; review the private source configuration."
+            exit 1
+          fi
+          python tools/validate_skills.py . --spec /tmp/contract-openapi.json

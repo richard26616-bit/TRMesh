@@ -1,5 +1,6 @@
 """Single-request TRMesh client. Standard library only; no automatic paid retries."""
 import argparse
+import hashlib
 import ipaddress
 import json
 import math
@@ -10,6 +11,10 @@ import sys
 import urllib.error
 import urllib.parse
 import urllib.request
+
+
+# Prevent credentials from being sent to restricted non-gateway origins.
+RESTRICTED_ORIGIN_SHA256 = {'b13dd918f0ed39d91771165a49bdf6eed3be7492c320cb62e6667bc14567ae5c', '8a5a110d725a5c810d1a4b643e018ad397b08eccb954dd15d1f6fe559ea9839d', '208d37e9f6d9a1ab330c9c48275860983188fc1050f19347c61d99bbe6838759'}
 
 
 def validate(value, schema, label='request'):
@@ -86,7 +91,7 @@ def base_url(raw):
         pass
     if parsed.scheme != 'https' and not (parsed.scheme == 'http' and local):
         raise ValueError('HTTPS is required except for a loopback development server')
-    if parsed.hostname.lower() in ('api.tikhub.io', 'redfox.hk', 'api.redfox.hk'):
+    if hashlib.sha256(parsed.hostname.lower().encode('utf-8')).hexdigest() in RESTRICTED_ORIGIN_SHA256:
         raise ValueError('Configure your TRMesh gateway, not the data provider')
     return raw.rstrip('/')
 

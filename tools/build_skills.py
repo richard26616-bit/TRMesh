@@ -333,7 +333,7 @@ def render_skill(slug, name, plat, kind, endpoints, disabled=False):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--spec', type=pathlib.Path, required=True)
-    parser.add_argument('--redfox', type=pathlib.Path, required=True)
+    parser.add_argument('--scenarios', type=pathlib.Path, required=True)
     seed_input = parser.add_mutually_exclusive_group(required=True)
     seed_input.add_argument('--seed-source', type=pathlib.Path)
     seed_input.add_argument('--seed-json', type=pathlib.Path)
@@ -343,8 +343,8 @@ def main():
     spec = json.loads(raw)
     if spec['info']['version'] != 'V5.3.2':
         raise ValueError('New source version requires recipe review, do not blindly regenerate')
-    reference = json.loads(args.redfox.read_text(encoding='utf-8-sig'))
-    redfox = reference['data']['records'] if isinstance(reference, dict) else reference
+    reference = json.loads(args.scenarios.read_text(encoding='utf-8-sig'))
+    scenarios = reference['data']['records'] if isinstance(reference, dict) else reference
     if args.seed_source:
         seed_source = args.seed_source.read_text(encoding='utf-8-sig')
         tuples = re.findall(r'\("([^"]+)", "([^"]+)", "([^"]+)", "([^"]+)", "([^"]+)", "([^"]+)"\)', seed_source)
@@ -353,7 +353,7 @@ def main():
         seeds = json.loads(args.seed_json.read_text(encoding='utf-8-sig'))
     if len(seeds) != 111:
         raise ValueError('Expected original 111 seed entries, got ' + str(len(seeds)))
-    for entry in redfox:
+    for entry in scenarios:
         slug = ALIASES.get(entry['skillCode'], entry['skillCode'])
         if entry['skillCode'] not in UNSUPPORTED and slug not in seeds:
             seeds[slug] = {'name': entry['skillName'], 'nameEn': entry.get('skillNameEn') or slug.replace('-', ' ').title(), 'id': len(seeds) + 1}
@@ -418,7 +418,7 @@ def main():
                           'enabled': not disabled, 'sortOrder': seed['id'] * 10, 'updatedAt': DATE,
                           '_kind': kind, '_platform': plat})
     coverage = []
-    for item in redfox:
+    for item in scenarios:
         origin = item['skillCode']
         slug = ALIASES.get(origin, origin)
         target = next((s for s in allskills if s['slug'] == slug and s['enabled']), None)
@@ -436,19 +436,19 @@ def main():
     catalog.mkdir(exist_ok=True)
     original = {slug: value for slug,value in seeds.items() if value['id'] <= 111}
     (catalog / 'seed-definitions.json').write_text(json.dumps(original, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    (catalog / 'reference-scenarios.json').write_text(json.dumps([{k:item.get(k, '') for k in ('skillCode', 'skillName', 'skillNameEn')} for item in redfox], ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    metadata = {'source': 'https://api.tikhub.io/openapi.json', 'sourceVersion': spec['info']['version'], 'date': DATE,
-                'sourceSha256': hashlib.sha256(raw).hexdigest(), 'officialOperationCount': sum(m in ('get', 'post') for v in spec['paths'].values() for m in v),
+    (catalog / 'reference-scenarios.json').write_text(json.dumps([{k:item.get(k, '') for k in ('skillCode', 'skillName', 'skillNameEn')} for item in scenarios], ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    metadata = {'source': 'maintainer-reviewed-contract', 'sourceVersion': spec['info']['version'], 'date': DATE,
+                'sourceSha256': hashlib.sha256(raw).hexdigest(), 'operationCount': len({tool for skill in allskills for tool in skill['tools']}), 'sourceOperationCount': sum(m in ('get', 'post') for v in spec['paths'].values() for m in v),
                 'skillCount': len(allskills), 'enabledSkills': sum(s['enabled'] for s in allskills), 'disabledSkills': [s['slug'] for s in allskills if not s['enabled']],
                 'referenceScenarioCount': len(coverage), 'coverageCounts': dict(collections.Counter(s['status'] for s in coverage)), 'liveDataVerified': False}
     (catalog / 'source.json').write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     (catalog / 'skills.json').write_text(json.dumps([{k:v for k,v in s.items() if not k.startswith('_')} for s in allskills], ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     (catalog / 'coverage.json').write_text(json.dumps(coverage, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    operations = [{'method':m.upper(), 'path':p, 'operationId':o.get('operationId'), 'summary':o.get('summary')} for p,v in spec['paths'].items() for m,o in v.items() if m in ('get', 'post')]
+    operations = [{'method':m.upper(), 'path':p, 'operationId':o.get('operationId'), 'summary':o.get('summary')} for p,v in spec['paths'].items() for m,o in v.items() if m in ('get', 'post') and (m.upper() + ' ' + p) in {tool for skill in allskills for tool in skill['tools']}]
     (catalog / 'operations.json').write_text(json.dumps(operations, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     docs = output / 'docs'
     docs.mkdir(exist_ok=True)
-    lines = ['# Redfox场景逐项能力映射', '', '参考公开Skills广场的使用场景，独立编写TRMesh执行流程，不复制其正文或调用第三方工具。共' + str(len(coverage)) + '项。', '',
+    lines = ['# TRMesh场景逐项能力映射', '', '按TRMesh场景目录独立编写执行流程，不调用外部Skill工具。共' + str(len(coverage)) + '项。', '',
              'direct=对应数据直接获取；composed=数据+本地分析/创作；partial=仅满足部分功能，必须看限制；unsupported=没有注册能力，不发布假实现。下载类为媒体链接提取，增长类需真实趋势或两次快照。', '',
              '| 参考场景 | 状态 | TRMesh Skill | 边界 |', '| --- | --- | --- | --- |']
     for item in coverage:

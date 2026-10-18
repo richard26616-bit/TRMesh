@@ -539,8 +539,8 @@
     "reason": "缺少行情、上市公司公告与金融数据核验接口。"
   },
   {
-    "sourceSkill": "redfox-skill-generator",
-    "sourceName": "红狐Skill生成器",
+    "sourceSkill": "skill-generator",
+    "sourceName": "Skill生成器",
     "status": "unsupported",
     "targetSkill": null,
     "reason": "第三方平台的 Skill 生成服务未注册；本仓库提供本地生成维护工具。"
@@ -613,7 +613,7 @@
     "sourceName": "今日头条爆款内容查询",
     "status": "unsupported",
     "targetSkill": null,
-    "reason": "最新版 TikHub 的今日头条没有关键词搜索接口；保留链接文章解析替代项。"
+    "reason": "当前注册的今日头条接口没有关键词搜索能力；保留链接文章解析替代项。"
   },
   {
     "sourceSkill": "stock-feed",

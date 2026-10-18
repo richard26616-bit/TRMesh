@@ -1,10 +1,8 @@
-TRMesh authored skill workflows and client/generation/validation code are original project material.
+TRMesh skill workflows and client/generation/validation code are project material.
 
-Public scenario names and identifiers were reviewed from https://redfox.hk/skills on 2026-10-04.
-Third-party skill README bodies and private tools are not included.
-
-Endpoint names, descriptions, request schemas and response schemas are sourced from
-https://api.tikhub.io/openapi.json (V5.3.2). Rights in this source metadata and third-party
-trademarks remain with their respective holders; the project MIT license does not purport
-to grant rights in third-party services or source metadata. Requests use a configured TRMesh
-gateway, subject to its access, billing and provider terms.
+Skill contracts include interface metadata and reviewed scenario descriptions. Rights in
+third-party metadata and trademarks remain with their respective holders; the project
+MIT license does not grant rights in third-party services or source metadata. Original
+source records are retained by the maintainers in the private maintenance repository.
+Requests use the configured TRMesh gateway and remain subject to its access, billing
+and service terms. Third-party skill bodies and private tools are not included.

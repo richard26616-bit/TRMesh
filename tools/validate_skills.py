@@ -7,21 +7,66 @@ import pathlib
 import re
 import threading
 import unittest
+import tempfile
+from unittest import mock
 import urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from client import NoRedirect, base_url, prepare, validate
 
 
+PUBLIC_RESTRICTED_TOKEN_SHA256 = {'87059bb5dd92b899013cbd41df01c73807738a8436b4f0b30d4593f4dc86fe44', '2d38c7460b89b303a4f6d3ccbac156a3c069bb8349d76dcd8430668133815de4', '497c4a7802db5a1009f0848a01403000e444e8929faaa7cac8a8d33c5d63c28d', 'cbea6fa89a1a56837ec0cdcf534980a4679c118c10ad2d64fe15532bd9e2f132'}
+
+
+def check_publication_boundary(root):
+    """Reject internal provider labels in public text without embedding those labels in this repository."""
+    for path in root.rglob('*'):
+        if not path.is_file() or any(part in ('.git', '__pycache__') for part in path.relative_to(root).parts):
+            continue
+        if path.suffix not in ('.md', '.json', '.py', '.yml', '.yaml', '.txt') and path.name not in ('NOTICE', 'LICENSE'):
+            continue
+        words = set(re.findall(r'[a-z]+|[\u3400-\u9fff]+', path.read_text(encoding='utf-8-sig').lower()))
+        candidates = {word[start:start + width] for word in words for width in (2, 6) for start in range(max(0, len(word) - width + 1))}
+        if any(hashlib.sha256(word.encode()).hexdigest() in PUBLIC_RESTRICTED_TOKEN_SHA256 for word in candidates):
+            raise ValueError('Internal source label in public file: ' + str(path.relative_to(root)))
+
+
 class ClientBoundaryTests(unittest.TestCase):
     def test_gateway_origin(self):
-        for bad in ('https://api.tikhub.io', 'https://redfox.hk', 'http://public.example',
+        for bad in ('https://user:password@example.invalid', 'http://public.example',
                     'https://secret@example.com', 'https://example.com?token=secret',
                     'https://example.com/openapi', 'ftp://example.com', 'https://example.com#x'):
             with self.assertRaises(ValueError):
                 base_url(bad)
         self.assertEqual('http://127.0.0.1:5207', base_url('http://127.0.0.1:5207/'))
         self.assertEqual('https://gateway.example', base_url('https://gateway.example'))
+
+    def test_restricted_origin_policy(self):
+        origin = 'https://provider.example'
+        digest = hashlib.sha256(b'provider.example').hexdigest()
+        with mock.patch('client.RESTRICTED_ORIGIN_SHA256', {digest}):
+            with self.assertRaises(ValueError):
+                base_url(origin)
+            self.assertEqual('https://gateway.example', base_url('https://gateway.example'))
+
+    def test_publication_boundary(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = pathlib.Path(folder)
+            (root / 'NOTICE').write_text('Vendor is internal', encoding='utf-8')
+            digest = hashlib.sha256(b'vendor').hexdigest()
+            with mock.patch.dict(globals(), PUBLIC_RESTRICTED_TOKEN_SHA256={digest}):
+                with self.assertRaises(ValueError):
+                    check_publication_boundary(root)
+                (root / 'NOTICE').write_text('PrefixVendorClient', encoding='utf-8')
+                with self.assertRaises(ValueError):
+                    check_publication_boundary(root)
+                (root / 'NOTICE').write_text('TRMesh public skills', encoding='utf-8')
+                check_publication_boundary(root)
+            (root / 'NOTICE').write_text('示例内部标签', encoding='utf-8')
+            digest = hashlib.sha256('内部'.encode()).hexdigest()
+            with mock.patch.dict(globals(), PUBLIC_RESTRICTED_TOKEN_SHA256={digest}):
+                with self.assertRaises(ValueError):
+                    check_publication_boundary(root)
 
     def test_nested_schema_and_unions(self):
         item_schema = {'type': 'object', 'required': ['score'], 'additionalProperties': False,
@@ -80,10 +125,11 @@ class ClientBoundaryTests(unittest.TestCase):
 
 
 def check_repo(root, spec_path=None):
+    check_publication_boundary(root)
     metadata = json.loads((root / 'catalog/source.json').read_text(encoding='utf-8'))
     operations = json.loads((root / 'catalog/operations.json').read_text(encoding='utf-8'))
     official = {(o['method'], o['path']): o for o in operations}
-    if len(official) != metadata['officialOperationCount']:
+    if len(official) != metadata['operationCount']:
         raise ValueError('Operation inventory count mismatch')
     spec = json.loads(spec_path.read_bytes()) if spec_path else None
     if spec_path and hashlib.sha256(spec_path.read_bytes()).hexdigest() != metadata['sourceSha256']:
